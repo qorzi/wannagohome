@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import styled, { ThemeProvider } from 'styled-components';
 import {dark, light} from './theme/theme';
-
+import { useTheme } from './theme/useTheme';
+import {
+  RecoilRoot,atom,selector,useRecoilState,useRecoilValue,
+} from 'recoil';
 
 function App() {
-  const [themeMode, setThemeMode] = useState('light')
-  const theme = themeMode === 'light' ? light : dark
-
-  function toggleTheme() {
-    
-  }
-
+  const [themeMode, toggleTheme] = useTheme()
+  const theme:any = themeMode === 'light' ? light : dark
 
   return (
-    <ThemeProvider theme={theme}>
-      <Main>
-        <div className="App">
-          <button onClick={toggleTheme}>버튼</button>
-        </div>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Main>
+          <div className="App">
+            <button onClick={toggleTheme}>버튼</button>
+          </div>
 
-      </Main>ß
+        </Main>
 
-    </ThemeProvider>
+      </ThemeProvider>
+
+    </RecoilRoot>
   );
 }
 
@@ -31,6 +31,6 @@ export default App;
 
 const Main = styled.div`
   width: 100%;
-  height: 100%;
-  background-color: ${(props : any) => props.theme.colors.defaultBgColor};
+  height: 100vh;
+  background-color: ${props => props.theme.color.defaultBgColor};
 `
