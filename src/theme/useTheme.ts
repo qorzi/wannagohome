@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 export const useTheme = () => {
 
@@ -22,7 +22,9 @@ export const useTheme = () => {
         setTheme(mode)
     };
 
-    const toggleTheme:any = () => setMode(theme === 'light' ? 'dark' : 'light');
+    const toggleTheme:any = () => {
+        setMode(theme === 'light' ? 'dark' : 'light')
+    };
 
     return [theme, toggleTheme];
 };
