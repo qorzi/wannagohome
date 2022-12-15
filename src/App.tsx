@@ -15,10 +15,12 @@ function App() {
 
   function Enter() {
     return (
-      <div>
-        <h1 className='mainTitle'>
+      <div className='main'>
+        <h1 className='main-title'>
           Do you wanna go home?
         </h1>
+        <button className='main-button'>Yes</button>
+        <button className='main-button'>Nope</button>
       </div>
     )
   }

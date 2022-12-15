@@ -11,7 +11,21 @@
   text-align: center;
 }
 
-.mainTitle {
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: 'DungGeunMo';
-  font-size: 32px;
+
+  &-title {
+    font-size: 48px;
+  }
+
+  &-button {
+    cursor: pointer;
+    font-size: 36px;
+    padding: 5px;
+    background: none;
+    border: none;
+  }
 }
