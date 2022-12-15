@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import styled, { ThemeProvider } from 'styled-components';
-import {dark, light} from '../public/theme';
+import {dark, light} from './theme/theme';
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   const theme = themeMode === 'light' ? light : dark
 
   function toggleTheme() {
-
+    
   }
 
 
