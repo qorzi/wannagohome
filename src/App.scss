@@ -1,5 +1,6 @@
+// Reset CSS
 * {margin:0;padding:0;box-sizing:border-box;font:inherit;color:inherit;flex-shrink:0;}
-
+// Mian font
 @font-face {
      font-family: 'DungGeunMo';
      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
@@ -7,24 +8,15 @@
      font-style: normal;
 }
 
-.App {
-  text-align: center;
-}
-
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: 'DungGeunMo';
-
-  &-title {
-    font-size: 48px;
-  }
+  align-items: baseline;
+  width: 70%;
+  max-width: 400px;
 
   &-button {
     cursor: pointer;
-    font-size: 36px;
-    padding: 5px;
     background: none;
     border: none;
   }
