@@ -7,6 +7,7 @@ import {
   RecoilRoot,atom,selector,useRecoilState,useRecoilValue,
 } from 'recoil';
 import { isPropertySignature } from 'typescript';
+import MatterStepOne from './component/wordsFalling';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -27,6 +28,7 @@ function App() {
     <RecoilRoot>
       <ThemeProvider theme={ theme }>
         <Main>
+          <MatterStepOne/>
           <Enter></Enter>
           <ThemeButton onClick={ toggleTheme }></ThemeButton>
         </Main>
