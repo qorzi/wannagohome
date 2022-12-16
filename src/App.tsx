@@ -11,7 +11,6 @@ import {
 function App() {
   const [themeMode, toggleTheme] = useTheme()
   const theme:any = themeMode === 'light' ? light : dark
-  console.log(theme)
 
   return (
     <RecoilRoot>

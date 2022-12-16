@@ -13,6 +13,8 @@ function EnterSelect() {
   const enterTitleString = 'Do you wanna go home?'
   const [enterTitle, setEnterTitle] = useState('')
   const [titleCount, setTitleCount] = useState(0)
+  
+  const lines = [<EnterTitle></EnterTitle>]
 
   useEffect(() => {
     const wordTyping = setInterval(() => {
@@ -27,9 +29,7 @@ function EnterSelect() {
 
   return (
     <TextBox>
-      <EnterTitle></EnterTitle>
-      <EnterButton>Yes</EnterButton>
-      <EnterButton>Nope</EnterButton>
+      {lines}
     </TextBox>
   )
 }
