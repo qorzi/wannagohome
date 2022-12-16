@@ -1,28 +1,18 @@
-import React, { useState } from 'react';
 import './App.scss';
+import Enter from './component/Enter'
+import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { dark, light } from './theme/theme';
 import { useTheme } from './theme/useTheme';
+import { dark, light } from './theme/theme';
 import {
   RecoilRoot,atom,selector,useRecoilState,useRecoilValue,
 } from 'recoil';
-import { isPropertySignature } from 'typescript';
 import MatterStepOne from './component/wordsFalling';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
   const theme:any = themeMode === 'light' ? light : dark
   console.log(theme)
-
-  function Enter() {
-    return (
-      <div>
-        <h1 className='mainTitle'>
-          Do you wanna go home?
-        </h1>
-      </div>
-    )
-  }
 
   return (
     <RecoilRoot>
@@ -42,14 +32,20 @@ function App() {
 export default App;
 
 const Main = styled.div`
-  width: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  text-align: center;
   color: ${props => props.theme.color.defaultColor};
   background-image: 
     linear-gradient(to bottom, transparent, transparent 16.6667%, ${props => props.theme.color.defaultBgColor} 16.6667%),
     linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 16.6667%, ${props => props.theme.color.defaultBgColor} 16.6667%);
   background-size: 6px 6px;
+  font-family: 'DungGeunMo';
+  font-size: 36px;
+  line-height: 160%;
 `
 
 const ThemeButton = styled.div`

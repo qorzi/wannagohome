@@ -18,7 +18,7 @@ export const dark = {
 export const light = {
   color:{
     defaultBgColor: '#ffffff',
-    defaultDotColor: '#cccccc',
+    defaultDotColor: '#aaaaaa',
     defaultColor: '#333333',
   },
   button: {
