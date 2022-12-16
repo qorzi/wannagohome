@@ -7,6 +7,7 @@ import { dark, light } from './theme/theme';
 import {
   RecoilRoot,atom,selector,useRecoilState,useRecoilValue,
 } from 'recoil';
+import MatterStepOne from './component/wordsFalling';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -17,6 +18,7 @@ function App() {
     <RecoilRoot>
       <ThemeProvider theme={ theme }>
         <Main>
+          <MatterStepOne/>
           <Enter></Enter>
           <ThemeButton onClick={ toggleTheme }></ThemeButton>
         </Main>
