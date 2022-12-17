@@ -58,7 +58,8 @@ export const MatterStepOne = () => {
       engine: engine,
       canvas: canvasRef.current,
       options: {
-        background: 'rgba(255, 255, 255, 0.5)',
+        // background: 'rgba(255, 255, 255, 0.5)',
+        background: 'transparent',
         wireframes: false
       }
     })
