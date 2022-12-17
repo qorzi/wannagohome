@@ -6,20 +6,21 @@ function EnterLoading() {
   const spinnerArray = ['/', '-', '\\', '|']
   const [spinner, setSpinner] = useState('')
   const [spinnerCount, setSpinnerCount] = useState(0)
-  const [progress, setProgress] = useState(0)
+
+  const [progress, setProgress] = useState<number>(0)
 
   useEffect(() => {
-    const wordTyping = setInterval(() => {
+    const loadSpinner = setInterval(() => {
       setSpinner(spinnerArray[spinnerCount])
-      setProgress(progress + 1)
+      setProgress(progress + 100 / 13)
       if (spinnerCount < 3) {
         setSpinnerCount(spinnerCount + 1)
       } else {
         setSpinnerCount(0)
       }
-      console.log(spinnerCount)
+      console.log(spinnerCount, String(progress))
     }, 100)
-    return () => clearInterval(wordTyping)
+    return () => clearInterval(loadSpinner)
   })
   function Loading() {
     return (
@@ -31,7 +32,7 @@ function EnterLoading() {
     <TextBox>
       <Loading></Loading>
       <LoadingBox>
-        <LoadingBar className='loading-bar'></LoadingBar>
+        <LoadingBar progress={ progress } className='loading-bar'></LoadingBar>
       </LoadingBox>
       
     </TextBox>
@@ -54,11 +55,16 @@ const LoadingBox = styled.div`
   padding: 5px
 `
 
-const LoadingBar = styled.div`
-  width: 100%;
+interface LoadingBar {
+  progress: number;
+  theme: any;
+}
+
+const LoadingBar = styled.div<LoadingBar>`
+  width: ${props => props.progress}%;
   height: 20px;
-  background-image: 
-    linear-gradient(to bottom, transparent, transparent 50%, ${props => props.theme.color.defaultBgColor} 50%),
-    linear-gradient(to right, ${props => props.theme.color.defaultColor}, ${props => props.theme.color.defaultColor} 50%, ${props => props.theme.color.defaultBgColor} 50%);
+  background-image:
+    linear-gradient(to bottom, transparent, transparent 70%, ${props => props.theme.color.defaultBgColor} 70%),
+    linear-gradient(to right, ${props => props.theme.color.defaultColor}, ${props => props.theme.color.defaultColor} 70%, ${props => props.theme.color.defaultBgColor} 70%);
   background-size: 3px 3px;
 `
