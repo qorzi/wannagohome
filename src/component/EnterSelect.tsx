@@ -4,32 +4,33 @@ import styled from 'styled-components';
 import { dark, light } from '../theme/theme';
 
 function EnterSelect() {
-  function EnterTitle() {
+
+  // 텍스트 타이핑 효과 함수
+  function EnterTitle(props: any) {
+    const enterTitleString = props.text
+    const [enterTitle, setEnterTitle] = useState('')
+    const [titleCount, setTitleCount] = useState(0)
+
+    useEffect(() => {
+      const wordTyping = setInterval(() => {
+        setEnterTitle(enterTitle + enterTitleString[titleCount])
+      setTitleCount(titleCount + 1)
+      }, parseInt(props.time))
+      if (titleCount === enterTitleString.length) {
+        clearInterval(wordTyping)
+      }
+      return () => clearInterval(wordTyping)
+    })
     return (
       <h1>{ enterTitle }</h1>
     )
   }
 
-  const enterTitleString = 'Do you wanna go home?'
-  const [enterTitle, setEnterTitle] = useState('')
-  const [titleCount, setTitleCount] = useState(0)
-
-  useEffect(() => {
-    const wordTyping = setInterval(() => {
-      setEnterTitle(enterTitle + enterTitleString[titleCount])
-      setTitleCount(titleCount + 1)
-    }, 100)
-    if (titleCount === enterTitleString.length) {
-      clearInterval(wordTyping)
-    }
-    return () => clearInterval(wordTyping)
-  })
-
   return (
     <TextBox>
-      <EnterTitle></EnterTitle>
+      <EnterTitle text='Do you wanna go home?' time='50'></EnterTitle>
       <EnterButton>Yes</EnterButton>
-      <EnterButton>Nope</EnterButton>
+      <EnterButton>No</EnterButton>
     </TextBox>
   )
 }
@@ -43,7 +44,7 @@ const TextBox = styled.div`
   width: 100%;
 `
 
-const EnterButton = styled.button`
+const EnterButton = styled.div`
   cursor: pointer;
   width: 100%;
   text-align: left;
