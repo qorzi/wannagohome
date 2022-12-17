@@ -1,13 +1,12 @@
 import './App.scss';
-import Enter from './component/Enter'
+import Enter from './pages/main/Enter'
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { useTheme } from './theme/useTheme';
 import { dark, light } from './theme/theme';
-import {
-  RecoilRoot,atom,selector,useRecoilState,useRecoilValue,
-} from 'recoil';
-import MatterStepOne from './component/wordsFalling';
+import { RecoilRoot,atom,selector,useRecoilState,useRecoilValue } from 'recoil';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import MatterStepOne from './pages/count/wordsFalling';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -17,13 +16,14 @@ function App() {
     <RecoilRoot>
       <ThemeProvider theme={ theme }>
         <Main>
-          <MatterStepOne/>
-          <Enter></Enter>
           <ThemeButton onClick={ toggleTheme }></ThemeButton>
+          <Routes>
+            <Route path='/' element={<Enter></Enter>}/>
+            <Route path='/count' element={<MatterStepOne/>}/>
+            <Route path='*' element={<div>404</div>}/>
+          </Routes>
         </Main>
-
       </ThemeProvider>
-
     </RecoilRoot>
   );
 }
