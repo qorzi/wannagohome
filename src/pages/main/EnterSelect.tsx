@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { dark, light } from '../theme/theme';
+import { dark, light } from '../../theme/theme';
 
 function EnterSelect() {
 
