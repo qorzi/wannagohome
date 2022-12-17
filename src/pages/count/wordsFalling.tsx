@@ -27,6 +27,15 @@ export const MatterStepOne = () => {
     console.log(someStateValue)
   };
 
+  useEffect(() => {
+
+    window.addEventListener('keydown', handleClick);
+
+    return () => {
+      window.removeEventListener('keydown', handleClick);
+    }
+  }, [someStateValue])
+
 
   useEffect(() => {
     let Engine = Matter.Engine;
@@ -40,7 +49,6 @@ export const MatterStepOne = () => {
     let World = Matter.World;
     let Mouse = Matter.Mouse;
     let MouseConstraint = Matter.MouseConstraint;
-
 
     let engine = Engine.create({});
     let world = engine.world;
@@ -156,7 +164,7 @@ export const MatterStepOne = () => {
       ])
 
       Matter.Body.setPosition(wallRight, {
-        x: width,
+        x: width + 15,
         y: height / 2
       })
       
@@ -197,14 +205,12 @@ export const MatterStepOne = () => {
   }, [someStateValue])
 
   return (
-    <>
     <MatterBox
       ref={boxRef}
     >
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef}/>
     </MatterBox>
-    <AddBtn onClick={() => handleClick()}>추가하기</AddBtn>
-    </>
+
   )
 }
 
