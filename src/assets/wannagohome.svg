@@ -1,0 +1,88 @@
+<svg
+  ref={svgRef}
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 528 90.746666"
+  height="90.746666"
+  width="528"
+>
+  <g
+    transform="matrix(1.3333333,0,0,-1.3333333,0,90.746667)"
+    id="g10"><path
+      id="path12"
+      d="m 57.742,32.998 h -8.249 v 28.871 h 8.249 z M 49.493,16.5 H 16.498 V 12.376 H 49.493 Z M 12.374,12.376 H 8.249 v 16.497 h 8.249 v -8.249 h 32.995 v 8.249 h 8.249 V 12.376 H 53.618 V 8.251 H 12.374 Z M 37.12,32.998 h -8.249 v 4.124 h -4.124 v 4.125 H 16.498 V 37.122 H 12.374 V 32.998 H 4.125 v 4.124 h 4.124 v 4.125 h 4.125 v 4.124 h 4.124 V 57.744 H 4.125 v 4.125 H 37.12 V 57.744 H 24.747 V 45.371 h 4.124 v -4.124 h 4.125 v -4.125 h 4.124 z" /><path
+      id="path14"
+      d="m 119.618,8.251 h -8.249 v 53.618 h 8.249 z M 74.249,16.5 h 8.249 v 4.124 h 4.124 V 49.496 H 82.498 V 53.62 H 74.249 V 49.496 H 70.125 V 20.624 h 4.124 z m 16.498,0 H 86.622 V 12.376 H 70.125 V 16.5 H 66 v 4.124 H 61.875 V 49.496 H 66 v 4.124 h 4.125 v 4.124 H 86.622 V 53.62 h 4.125 v -4.124 h 4.124 V 37.122 h 4.125 v 24.747 h 8.248 V 8.251 H 98.996 V 32.998 H 94.871 V 20.624 h -4.124 z" /><g
+      transform="translate(164.9956,37.122)"
+      id="g16"><path
+        id="path18"
+        d="M 0,0 H 12.374 V -4.124 H 0 V -28.871 H -8.249 V 24.747 H 0 Z m -29.214,-16.498 h 4.124 v 32.996 h -16.497 v 4.124 h 24.746 v -37.12 h -4.124 v -4.124 h -4.125 v -4.124 h -12.373 v 4.124 h 8.249 z" /></g><g
+      transform="translate(173.2534,57.7441)"
+      id="g20"><path
+        id="path22"
+        d="m 0,0 h 49.493 v -24.746 h -4.124 v -4.125 H 37.12 v 4.125 h 4.124 V -4.124 L 0,-4.124 Z m 28.871,-41.244 h 24.747 v -4.124 H -4.125 v 4.124 h 24.747 v 20.622 h 8.249 z" /></g><path
+      id="path24"
+      d="m 280.49,32.998 h -8.249 v 28.871 h 8.249 z M 263.992,24.749 H 247.495 V 12.376 h 16.497 z m -24.746,0 h -8.249 v 4.124 h 49.493 v -4.124 h -8.249 V 12.376 h 8.249 V 8.251 h -49.493 v 4.125 h 8.249 z m 12.373,12.373 h -4.124 v 4.125 h -8.249 v -4.125 h -4.125 v -4.124 h -8.249 v 4.124 h 4.125 v 4.125 h 4.124 v 4.124 h 4.125 v 16.498 h 8.249 V 45.371 h 4.124 v -4.124 h 4.125 v -4.125 h 4.124 v -4.124 h -8.249 z" /><g
+      transform="translate(328.2771,37.122)"
+      id="g26"><path
+        id="path28"
+        d="M 0,0 H 12.373 V -4.124 H 0 V -28.871 H -8.249 V 24.747 H 0 Z m -18.347,-24.746 h -20.622 v 4.124 h -4.125 v 41.244 h 28.872 v -4.124 h -20.623 v -37.12 h 12.374 v 4.124 h 8.249 v -4.124 h -4.125 z" /></g>
+        </g>
+  </svg>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396 68.06" style="display:none">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: DungGeunMo, DungGeunMo;
+        font-size: 66px;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(0 51.56)"><tspan x="0" y="0">집에가고싶다</tspan></text>
+</svg> -->
+
+<!-- <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <svg
+    style=""
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:cc="http://creativecommons.org/ns#"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 528 90.746666"
+      height="90.746666"
+      width="528"
+      xml:space="preserve"
+      id="svg2"
+      version="1.1"><metadata
+        id="metadata8"><rdf:RDF><cc:Work
+            rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+              rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+        id="defs6" /><g
+        transform="matrix(1.3333333,0,0,-1.3333333,0,90.746667)"
+        id="g10"><path
+          id="path12"
+          style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+          d="m 57.742,32.998 h -8.249 v 28.871 h 8.249 z M 49.493,16.5 H 16.498 V 12.376 H 49.493 Z M 12.374,12.376 H 8.249 v 16.497 h 8.249 v -8.249 h 32.995 v 8.249 h 8.249 V 12.376 H 53.618 V 8.251 H 12.374 Z M 37.12,32.998 h -8.249 v 4.124 h -4.124 v 4.125 H 16.498 V 37.122 H 12.374 V 32.998 H 4.125 v 4.124 h 4.124 v 4.125 h 4.125 v 4.124 h 4.124 V 57.744 H 4.125 v 4.125 H 37.12 V 57.744 H 24.747 V 45.371 h 4.124 v -4.124 h 4.125 v -4.125 h 4.124 z" /><path
+          id="path14"
+          style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+          d="m 119.618,8.251 h -8.249 v 53.618 h 8.249 z M 74.249,16.5 h 8.249 v 4.124 h 4.124 V 49.496 H 82.498 V 53.62 H 74.249 V 49.496 H 70.125 V 20.624 h 4.124 z m 16.498,0 H 86.622 V 12.376 H 70.125 V 16.5 H 66 v 4.124 H 61.875 V 49.496 H 66 v 4.124 h 4.125 v 4.124 H 86.622 V 53.62 h 4.125 v -4.124 h 4.124 V 37.122 h 4.125 v 24.747 h 8.248 V 8.251 H 98.996 V 32.998 H 94.871 V 20.624 h -4.124 z" /><g
+          transform="translate(164.9956,37.122)"
+          id="g16"><path
+            id="path18"
+            style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+            d="M 0,0 H 12.374 V -4.124 H 0 V -28.871 H -8.249 V 24.747 H 0 Z m -29.214,-16.498 h 4.124 v 32.996 h -16.497 v 4.124 h 24.746 v -37.12 h -4.124 v -4.124 h -4.125 v -4.124 h -12.373 v 4.124 h 8.249 z" /></g><g
+          transform="translate(173.2534,57.7441)"
+          id="g20"><path
+            id="path22"
+            style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+            d="m 0,0 h 49.493 v -24.746 h -4.124 v -4.125 H 37.12 v 4.125 h 4.124 V -4.124 L 0,-4.124 Z m 28.871,-41.244 h 24.747 v -4.124 H -4.125 v 4.124 h 24.747 v 20.622 h 8.249 z" /></g><path
+          id="path24"
+          style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+          d="m 280.49,32.998 h -8.249 v 28.871 h 8.249 z M 263.992,24.749 H 247.495 V 12.376 h 16.497 z m -24.746,0 h -8.249 v 4.124 h 49.493 v -4.124 h -8.249 V 12.376 h 8.249 V 8.251 h -49.493 v 4.125 h 8.249 z m 12.373,12.373 h -4.124 v 4.125 h -8.249 v -4.125 h -4.125 v -4.124 h -8.249 v 4.124 h 4.125 v 4.125 h 4.124 v 4.124 h 4.125 v 16.498 h 8.249 V 45.371 h 4.124 v -4.124 h 4.125 v -4.125 h 4.124 v -4.124 h -8.249 z" /><g
+          transform="translate(328.2771,37.122)"
+          id="g26"><path
+            id="path28"
+            style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+            d="M 0,0 H 12.373 V -4.124 H 0 V -28.871 H -8.249 V 24.747 H 0 Z m -18.347,-24.746 h -20.622 v 4.124 h -4.125 v 41.244 h 28.872 v -4.124 h -20.623 v -37.12 h 12.374 v 4.124 h 8.249 v -4.124 h -4.125 z" /></g></g></svg> -->
