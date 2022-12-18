@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import './EnterLoading.scss';
 
 function EnterLoading() {
   const spinnerArray = ['/', '-', '\\', '|']
@@ -20,8 +19,12 @@ function EnterLoading() {
       }
       console.log(spinnerCount, String(progress))
     }, 100)
+    if (progress >= 100) {
+      clearInterval(loadSpinner)
+    }
     return () => clearInterval(loadSpinner)
   })
+
   function Loading() {
     return (
       <p>Loading...{ spinner }</p>
