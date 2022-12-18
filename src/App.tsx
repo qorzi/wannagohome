@@ -9,6 +9,8 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import MatterStepOne from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
 
+import Timer from './pages/count/timer';
+
 function App() {
   const [themeMode, toggleTheme] = useTheme()
   const theme:any = themeMode === 'light' ? light : dark
@@ -22,6 +24,7 @@ function App() {
             <Route path='/' element={<Enter></Enter>}/>
             <Route path='/count' element={<MatterStepOne/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
+            <Route path='/timer' element={<Timer/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>

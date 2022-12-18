@@ -65,6 +65,7 @@ const Blue = styled.div`
   display: flex;
   justify-content: center;
   color: white;
+  padding: 40px;
 `
 
 const TextBox = styled.div`

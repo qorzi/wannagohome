@@ -27,7 +27,7 @@ function EnterSelect() {
       time={50} 
       lineNum={ 3 } 
       setShowLines={ setShowLines }
-      routeLink="/blue"></EnterButton>
+      routeLink="/blue"></EnterButton>,
   ]
 
   return (
