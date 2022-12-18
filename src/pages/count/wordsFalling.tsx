@@ -11,7 +11,7 @@ const PARTICLE_SIZE = 18;
 const PARTICLE_BOUNCYNESS = 0.3;
 
 export const MatterStepOne = (props:any) => {
-
+  console.log(props.themeMode)
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);
   const svgRef = useRef<any>(null);
