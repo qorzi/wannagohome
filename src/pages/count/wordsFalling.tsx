@@ -2,15 +2,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Matter, { Vector } from 'matter-js';
 import styled from 'styled-components';
-import path from 'path';
-import { off } from 'process';
-// import WannaGohome from '../../assets/wannagohome.svg'
+import { ReactComponent as WannaGohome } from '../../assets/wannagohome.svg'
+import wngImg from '../../assets/wannagohomeWords.png'
+import { dark, light } from '../../theme/theme';
 
 const STATIC_DENSITY = 60;
 const PARTICLE_SIZE = 18;
 const PARTICLE_BOUNCYNESS = 0.3;
 
-export const MatterStepOne = () => {
+export const MatterStepOne = (props:any) => {
 
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);
@@ -71,45 +71,23 @@ export const MatterStepOne = () => {
     const floor = Bodies.rectangle(0, 0, 0, STATIC_DENSITY, {
       isStatic: true,
       render: {
-        fillStyle: 'blue'
+        fillStyle: 'transparent'
       }
     })
 
     const wallRight = Bodies.rectangle(0, 0, STATIC_DENSITY, 0, {
       isStatic: true,
       render: {
-        fillStyle: 'blue'
+        fillStyle: 'transparent'
       }
     })
 
     const wallLeft = Bodies.rectangle(0, 0, STATIC_DENSITY, 0, {
       isStatic: true,
       render: {
-        fillStyle: 'blue'
+        fillStyle: 'transparent'
       }
     })
-
-    console.log(svgRef)
-    // const svgPath = document.querySelectorAll("svg")
-    // const svgVertices = [...Array.from(svgPath)].map((path: SVGPathElement) => {
-    //   Bodies.fromVertices(200, 75, Vertices.scale(Svg.pathToVertices(path), 0.2, 0.2), {
-    //     render: {
-    //         // strokeStyle: red,
-    //         lineWidth: 1
-    //     }
-    // }, true);
-    // }) 
-
-    // const words = [
-    //   Matter.Bodies.rectangle(400, 210, 810, 60, {isStatic: true}),
-    //   ...[...Array.from(wordsPath)].map((path) => {
-    //     const word = Matter.Bodies.fromVertices(
-    //       100, 80, Svg.pathToVertices(path), {}, true
-    //     );
-    //     Matter.Body.scale(word, 0.2, 0.2);
-    //     return word
-    //   })
-    // ];
 
     // 없애고 싶은데 이게 한번 떨어져야 알맞은 화면 사이즈가 만들어짐. 투명상태로 한번 떨굼.
     const ball = Bodies.circle(0, -PARTICLE_SIZE, PARTICLE_SIZE, {
@@ -117,9 +95,20 @@ export const MatterStepOne = () => {
       render: {
         // fillStyle: 'transparent'
       }
-    });
+    })
 
-    World.add(world, [floor, wallRight, wallLeft, ball]);
+    const text = Bodies.rectangle(300, -PARTICLE_SIZE, 55, 8, {
+      restitution: PARTICLE_BOUNCYNESS*2,
+      render: {
+        sprite: {
+          texture: props.themeMode === 'dark' ? dark.img.darkwngImg : light.img.lightwngImg,
+          xScale: 0.2,
+          yScale: 0.2
+        }
+      }
+    })
+
+    World.add(world, [floor, wallRight, wallLeft, text]);
 
     Engine.run(engine);
     Render.run(render);
@@ -224,20 +213,33 @@ export const MatterStepOne = () => {
       let randomX = Math.floor(Math.random() * -width) + width
       Matter.World.add(
         scene.engine.world,
-        [Matter.Bodies.circle(randomX, -PARTICLE_SIZE, PARTICLE_SIZE, {
-          restitution: PARTICLE_BOUNCYNESS
-        })]
+        // [Matter.Bodies.circle(randomX, -PARTICLE_SIZE, PARTICLE_SIZE, {
+        //   restitution: PARTICLE_BOUNCYNESS
+        // })]
+          [Matter.Bodies.rectangle(randomX, -PARTICLE_SIZE, 80, 20, {
+            restitution: PARTICLE_BOUNCYNESS*2,
+            render: {
+              sprite: {
+                texture: props.themeMode === 'dark' ? dark.img.darkwngImg : light.img.lightwngImg,
+                xScale: 0.2,
+                yScale: 0.2
+              }
+            }
+          })]
       )
     }
   }, [someStateValue])
 
   return (
-    <MatterBox
-      ref={boxRef}
-    >
-      <canvas ref={canvasRef}/>
-      
-    </MatterBox>
+    <>
+      <MatterBox
+        ref={boxRef}
+      >
+        <canvas ref={canvasRef}/>
+      </MatterBox>
+    
+      <WannaGohome ref={svgRef} style={{position:'absolute'}}/>
+    </>
 
   )
 }
@@ -250,12 +252,4 @@ const MatterBox = styled.div`
   position: 'absolute',
   top: 0,
   left: 0,
-`
-
-const AddBtn = styled.button`
-  cursor: 'pointer',
-  display: 'block',
-  textAlign: 'center',
-  marginBottom: '16px',
-  width: '100%'
 `

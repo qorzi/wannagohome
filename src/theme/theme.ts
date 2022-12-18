@@ -2,6 +2,8 @@ import darkButton from '../assets/darkButton.png'
 import darkButtonHover from '../assets/darkButtonHover.png'
 import lightButton from '../assets/lightButton.png'
 import lightButtonHover from '../assets/lightButtonHover.png'
+import darkwngImg from '../assets/wannagohomeWordsDark.png'
+import lightwngImg from '../assets/wannagohomeWordsLight.png'
 
 export const dark = {
   color:{
@@ -12,6 +14,9 @@ export const dark = {
   button: {
     themeButtonSrc: lightButton,
     themeButtonHoverSrc: lightButtonHover,
+  },
+  img: {
+    darkwngImg: darkwngImg,
   }
 }
 
@@ -24,5 +29,8 @@ export const light = {
   button: {
     themeButtonSrc: darkButton,
     themeButtonHoverSrc: darkButtonHover,
+  },
+  img: {
+    lightwngImg: lightwngImg,
   }
 }
