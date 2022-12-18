@@ -1,7 +1,10 @@
 // MatterStepOne.js
 import React, { useEffect, useRef, useState } from 'react';
-import Matter from 'matter-js';
+import Matter, { Vector } from 'matter-js';
 import styled from 'styled-components';
+import path from 'path';
+import { off } from 'process';
+// import WannaGohome from '../../assets/wannagohome.svg'
 
 const STATIC_DENSITY = 60;
 const PARTICLE_SIZE = 18;
@@ -11,6 +14,7 @@ export const MatterStepOne = () => {
 
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);
+  const svgRef = useRef<any>(null);
 
   const [constraints, setContraints] = useState<any>();
   const [scene, setScene] = useState<any>();
@@ -84,6 +88,28 @@ export const MatterStepOne = () => {
         fillStyle: 'blue'
       }
     })
+
+    console.log(svgRef)
+    // const svgPath = document.querySelectorAll("svg")
+    // const svgVertices = [...Array.from(svgPath)].map((path: SVGPathElement) => {
+    //   Bodies.fromVertices(200, 75, Vertices.scale(Svg.pathToVertices(path), 0.2, 0.2), {
+    //     render: {
+    //         // strokeStyle: red,
+    //         lineWidth: 1
+    //     }
+    // }, true);
+    // }) 
+
+    // const words = [
+    //   Matter.Bodies.rectangle(400, 210, 810, 60, {isStatic: true}),
+    //   ...[...Array.from(wordsPath)].map((path) => {
+    //     const word = Matter.Bodies.fromVertices(
+    //       100, 80, Svg.pathToVertices(path), {}, true
+    //     );
+    //     Matter.Body.scale(word, 0.2, 0.2);
+    //     return word
+    //   })
+    // ];
 
     // 없애고 싶은데 이게 한번 떨어져야 알맞은 화면 사이즈가 만들어짐. 투명상태로 한번 떨굼.
     const ball = Bodies.circle(0, -PARTICLE_SIZE, PARTICLE_SIZE, {
@@ -210,6 +236,7 @@ export const MatterStepOne = () => {
       ref={boxRef}
     >
       <canvas ref={canvasRef}/>
+      
     </MatterBox>
 
   )
