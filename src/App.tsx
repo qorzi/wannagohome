@@ -7,6 +7,7 @@ import { dark, light } from './theme/theme';
 import { RecoilRoot,atom,selector,useRecoilState,useRecoilValue } from 'recoil';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import MatterStepOne from './pages/count/wordsFalling';
+import BlueScreen from './pages/blueScreen/BlueScreen';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Enter></Enter>}/>
             <Route path='/count' element={<MatterStepOne/>}/>
+            <Route path='/blue' element={<BlueScreen/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>

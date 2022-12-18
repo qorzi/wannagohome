@@ -1,36 +1,38 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
+
+import EnterTitle from './EnterSelectTitle'
+import EnterButton from './EnterSelectButton'
 
 import { dark, light } from '../../theme/theme';
 
 function EnterSelect() {
+  const [showLine, setShowLines] = useState(1)
 
-  // 텍스트 타이핑 효과 함수
-  function EnterTitle(props: any) {
-    const enterTitleString = props.text
-    const [enterTitle, setEnterTitle] = useState('')
-    const [titleCount, setTitleCount] = useState(0)
-
-    useEffect(() => {
-      const wordTyping = setInterval(() => {
-        setEnterTitle(enterTitle + enterTitleString[titleCount])
-      setTitleCount(titleCount + 1)
-      }, parseInt(props.time))
-      if (titleCount === enterTitleString.length) {
-        clearInterval(wordTyping)
-      }
-      return () => clearInterval(wordTyping)
-    })
-    return (
-      <h1>{ enterTitle }</h1>
-    )
-  }
+  const lines = [
+    <EnterTitle 
+      value="Do you wanna go home?" 
+      time={50} 
+      lineNum={ 1 } 
+      setShowLines={ setShowLines }></EnterTitle>,
+    <EnterButton 
+      value="Yes" 
+      time={50} 
+      lineNum={ 2 } 
+      setShowLines={ setShowLines }
+      routeLink="/count"></EnterButton>,
+    <EnterButton 
+      value="Nope" 
+      time={50} 
+      lineNum={ 3 } 
+      setShowLines={ setShowLines }
+      routeLink="/blue"></EnterButton>
+  ]
 
   return (
     <TextBox>
-      <EnterTitle text='Do you wanna go home?' time='50'></EnterTitle>
-      <EnterButton>Yes</EnterButton>
-      <EnterButton>No</EnterButton>
+      { lines.slice(0, showLine) }
     </TextBox>
   )
 }
@@ -42,16 +44,4 @@ const TextBox = styled.div`
   flex-direction: column;
   align-items: baseline;
   width: 100%;
-`
-
-const EnterButton = styled.div`
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  &:hover {
-    color: ${props => props.theme.color.defaultBgColor};
-    background: ${props => props.theme.color.defaultColor};
-  }
 `
