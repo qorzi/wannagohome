@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Matter, { Vector } from 'matter-js';
 import styled from 'styled-components';
 import { ReactComponent as WannaGohome } from '../../assets/wannagohome.svg'
-import wngImg from '../../assets/wannagohomeWords.png'
 import { dark, light } from '../../theme/theme';
 
 const STATIC_DENSITY = 60;
@@ -11,7 +10,6 @@ const PARTICLE_SIZE = 18;
 const PARTICLE_BOUNCYNESS = 0.3;
 
 export const MatterStepOne = (props:any) => {
-  console.log(props.themeMode)
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);
   const svgRef = useRef<any>(null);
@@ -27,8 +25,7 @@ export const MatterStepOne = (props:any) => {
   };
 
   const handleClick = () => {
-    setSomeStateValue(someStateValue+1);
-    console.log(someStateValue)
+    setSomeStateValue(someStateValue+1)
   };
 
   useEffect(() => {
@@ -64,7 +61,8 @@ export const MatterStepOne = (props:any) => {
       options: {
         // background: 'rgba(255, 255, 255, 0.5)',
         background: 'transparent',
-        wireframes: false
+        wireframes: false,
+
       }
     })
 
@@ -90,25 +88,25 @@ export const MatterStepOne = (props:any) => {
     })
 
     // 없애고 싶은데 이게 한번 떨어져야 알맞은 화면 사이즈가 만들어짐. 투명상태로 한번 떨굼.
-    const ball = Bodies.circle(0, -PARTICLE_SIZE, PARTICLE_SIZE, {
+    const ball = Bodies.circle(0, 0, 0.1, {
       restitution: PARTICLE_BOUNCYNESS,
       render: {
-        // fillStyle: 'transparent'
+        fillStyle: 'transparent'
       }
     })
 
-    const text = Bodies.rectangle(300, -PARTICLE_SIZE, 55, 8, {
-      restitution: PARTICLE_BOUNCYNESS*2,
-      render: {
-        sprite: {
-          texture: props.themeMode === 'dark' ? dark.img.darkwngImg : light.img.lightwngImg,
-          xScale: 0.2,
-          yScale: 0.2
-        }
-      }
-    })
+    // const text = Bodies.rectangle(300, -PARTICLE_SIZE, 55, 8, {
+    //   restitution: PARTICLE_BOUNCYNESS*2,
+    //   render: {
+    //     sprite: {
+    //       texture: props.themeMode === 'dark' ? dark.img.darkwngImg : light.img.lightwngImg,
+    //       xScale: 0.2,
+    //       yScale: 0.2
+    //     }
+    //   }
+    // })
 
-    World.add(world, [floor, wallRight, wallLeft, text]);
+    World.add(world, [floor, wallRight, wallLeft, ball]);
 
     Engine.run(engine);
     Render.run(render);
@@ -180,7 +178,7 @@ export const MatterStepOne = (props:any) => {
       ])
 
       Matter.Body.setPosition(wallRight, {
-        x: width + 15,
+        x: width ,
         y: height / 2
       })
       
@@ -192,7 +190,7 @@ export const MatterStepOne = (props:any) => {
       ])
 
       Matter.Body.setPosition(wallLeft, {
-        x: - STATIC_DENSITY/2 -10,
+        x: - STATIC_DENSITY/2 +10,
         y: height / 2
       })
 
@@ -228,7 +226,7 @@ export const MatterStepOne = (props:any) => {
           })]
       )
     }
-  }, [someStateValue])
+  }, [scene, someStateValue])
 
   return (
     <>
