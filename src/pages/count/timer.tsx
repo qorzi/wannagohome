@@ -3,7 +3,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
 import Runner from './run'
 
-function Timer() {
+function Timer(props:any) {
 
   const targetHour = 23
   const targetMin = 0
@@ -26,7 +26,6 @@ function Timer() {
       Min: currentMin,
       Sec: currentSec
     })
-    console.log(timer)
   }
   const flickerColon = () => {
     if (secColon === ":") {
@@ -54,7 +53,7 @@ function Timer() {
     <div>
       <div>time</div>
       <div>{ timer.Hour }{ secColon }{ timer.Min }{ secColon }{ timer.Sec }</div>
-      <Runner></Runner>
+      <Runner theme={ props }></Runner>
     </div>
   )
 }

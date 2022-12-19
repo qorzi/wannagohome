@@ -24,7 +24,7 @@ function App() {
             <Route path='/' element={<Enter></Enter>}/>
             <Route path='/count' element={<MatterStepOne themeMode={ themeMode }/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
-            <Route path='/timer' element={<Timer/>}/>
+            <Route path='/timer' element={<Timer theme={ theme }/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>
