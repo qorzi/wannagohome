@@ -12,6 +12,8 @@ import runLight1 from '../assets/runLight/runLight1.png'
 import runLight2 from '../assets/runLight/runLight2.png'
 import runLight3 from '../assets/runLight/runLight3.png'
 import runLight4 from '../assets/runLight/runLight4.png'
+import homeDark from '../assets/homeDark.png'
+import homeLight from '../assets/homeLight.png'
 
 export const dark = {
   color:{
@@ -28,7 +30,8 @@ export const dark = {
   },
   runner: [
     runLight1, runLight2, runLight3, runLight4
-  ]
+  ],
+  home: homeDark
 }
 
 export const light = {
@@ -46,6 +49,7 @@ export const light = {
   },
   runner: [
     runDark1, runDark2, runDark3, runDark4
-  ]
+  ],
+  home: homeLight
 
 }

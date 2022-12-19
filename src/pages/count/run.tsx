@@ -1,14 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
-import runDark1 from '../../assets/runDark/runDark1.png'
-import runDark2 from '../../assets/runDark/runDark2.png'
-import runDark3 from '../../assets/runDark/runDark3.png'
-import runDark4 from '../../assets/runDark/runDark4.png'
-import runLight1 from '../../assets/runLight/runLight1.png'
-import runLight2 from '../../assets/runLight/runLight2.png'
-import runLight3 from '../../assets/runLight/runLight3.png'
-import runLight4 from '../../assets/runLight/runLight4.png'
 
 function Runner(props:any) {
   const runnerArray: any = [...props.theme.theme.runner]
@@ -17,6 +9,7 @@ function Runner(props:any) {
   const [runnerCount, setRunnerCount] = useState(0)
 
   useEffect(() => {
+    console.log(props.theme)
     const loadSpinner = setInterval(() => {
       setRunner(runnerArray[runnerCount])
       if (runnerCount < 3) {
@@ -30,9 +23,45 @@ function Runner(props:any) {
 
   return (
     <div>
-      <img src={runner}></img>
+      <Road>
+        <RunImg timeProgress={props.timerProgress} src={runner}></RunImg>
+        <Progress theme={props.theme}>{(props.timerProgress).toFixed(3)}%</Progress>
+        <HomeImg theme={props.theme}></HomeImg>
+      </Road>
     </div>
   )
 }
 
 export default Runner;
+
+const Road = styled.div`
+  display: flex;
+  width: 70vw;
+  max-width: 400px;
+  height: 45px;
+  position: relative;
+`
+
+const RunImg = styled.img<any>`
+  margin: 0px;
+  height: 30px;
+  position: absolute;
+  left: ${props => props.timeProgress}%;
+  bottom: 0px;
+  transition: all;
+`
+
+const HomeImg = styled.div`
+  display: inline-block;
+  background-image: url(${props => props.theme.theme.home});
+  position: absolute;
+  left: 100%;
+  bottom: 0px;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+`
+
+const Progress = styled.div`
+  color: ${props => props.theme.theme.color.defaultDotColor};
+`

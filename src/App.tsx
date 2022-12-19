@@ -22,7 +22,7 @@ function App() {
           <ThemeButton onClick={ toggleTheme }></ThemeButton>
           <Routes>
             <Route path='/' element={<Enter></Enter>}/>
-            <Route path='/count' element={<MatterStepOne themeMode={ themeMode }/>}/>
+            <Route path='/count' element={<MatterStepOne theme={ theme }/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
             <Route path='/timer' element={<Timer theme={ theme }/>}/>
             <Route path='*' element={<div>404</div>}/>
