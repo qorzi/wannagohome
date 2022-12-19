@@ -4,10 +4,16 @@ import Matter, { Vector } from 'matter-js';
 import styled from 'styled-components';
 import { ReactComponent as WannaGohome } from '../../assets/wannagohome.svg'
 import { dark, light } from '../../theme/theme';
+import Timer from './timer'
+import darkWngImg from '../../assets/darkWannagohomeWords.png'
+import grayWngImg from '../../assets/grayWannagohomeWords.png'
+import lightWngImg from '../../assets/lightWannagohomeWords.png'
 
 const STATIC_DENSITY = 60;
 const PARTICLE_SIZE = 18;
 const PARTICLE_BOUNCYNESS = 0.3;
+
+const words = [darkWngImg, grayWngImg, lightWngImg]
 
 export const MatterStepOne = (props:any) => {
   const boxRef = useRef<any>(null);
@@ -218,7 +224,7 @@ export const MatterStepOne = (props:any) => {
             restitution: PARTICLE_BOUNCYNESS*2,
             render: {
               sprite: {
-                texture: props.themeMode === 'dark' ? dark.img.darkwngImg : light.img.lightwngImg,
+                texture: words[Math.floor(Math.random() * words.length)],
                 xScale: 0.2,
                 yScale: 0.2
               }
@@ -235,7 +241,6 @@ export const MatterStepOne = (props:any) => {
       >
         <canvas ref={canvasRef}/>
       </MatterBox>
-    
       <WannaGohome ref={svgRef} style={{position:'absolute'}}/>
     </>
 
