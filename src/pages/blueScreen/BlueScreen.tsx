@@ -40,9 +40,11 @@ function BlueScreen() {
   useEffect(() => {
     if (showLine > lines.length) {
       window.addEventListener('keydown', onKeyUp);
+      window.addEventListener('click', onKeyUp);
     }
     return () => {
       window.removeEventListener('keydown', onKeyUp);
+      window.removeEventListener('click', onKeyUp);
     }
   })
 
