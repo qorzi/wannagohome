@@ -4,7 +4,6 @@ import Matter, { Vector } from 'matter-js';
 import styled from 'styled-components';
 import { ReactComponent as WannaGohome } from '../../assets/wannagohome.svg'
 import { dark, light } from '../../theme/theme';
-import Timer from './timer'
 import darkWngImg from '../../assets/darkWannagohomeWords.png'
 import grayWngImg from '../../assets/grayWannagohomeWords.png'
 import lightWngImg from '../../assets/lightWannagohomeWords.png'
@@ -244,7 +243,6 @@ export const MatterStepOne = (props:any) => {
         <canvas ref={canvasRef}/>
       </MatterBox>
       <Timer theme={props.theme}></Timer>
-      <WannaGohome ref={svgRef} style={{position:'absolute'}}/>
     </>
 
   )
