@@ -9,6 +9,8 @@ import Paper, { PaperProps } from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import styled from 'styled-components';
 
+import KoreaMap from './KoreaMap'
+
 function PaperComponent(props: PaperProps) {
   return (
     <Draggable
@@ -36,35 +38,54 @@ export default function DraggableModal(props:any) {
       <Button variant="outlined" onClick={handleClickOpen}>
         Open draggable dialog
       </Button>
-      <Dialog
+      <StyledDialog
         open={open}
         // onClose={handleClose}
         PaperComponent={PaperComponent}
         aria-labelledby="draggable-dialog-title"
       >
         <UpperTab>
-            <CloseBtn onClick={handleClose} ><p>✕</p></CloseBtn>
-            <DragBox id="draggable-dialog-title"><p>지역별 현황</p></DragBox>
-          </UpperTab>
+          <CloseBtn onClick={handleClose} ><p>✕</p></CloseBtn>
+          <DragBox id="draggable-dialog-title"><p>지역별 현황</p></DragBox>
+        </UpperTab>
 
         <TextBox>
-          <Text>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
-          </Text>
+          <Text>Text</Text>
+          <KoreaMap></KoreaMap>
         </TextBox>
-      </Dialog>
+      </StyledDialog>
     </div>
   );
 }
 
+const StyledDialog = styled(Dialog)`
+  .MuiBackdrop-root {
+    background: none;
+  }
+  .MuiDialog-container {
+
+  }
+  .MuiPaper-root {
+    border-top: 1px solid ${props => props.theme.color.defaultColor};
+    border-left: 1px solid ${props => props.theme.color.defaultColor};
+    border-right: 3px solid ${props => props.theme.color.defaultColor};
+    border-bottom: 3px solid ${props => props.theme.color.defaultColor};
+    border-radius: 0px;
+    box-shadow: none;
+  }
+`
+
 const UpperTab = styled.div`
   display: flex;
+  border-bottom: 1px solid ${props => props.theme.color.defaultColor};
+  background-image: 
+    linear-gradient(to bottom, transparent, transparent 30%, ${props => props.theme.color.defaultBgColor} 30%),
+    linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 30%, ${props => props.theme.color.defaultBgColor} 30%);
+  background-size: 4px 4px;
 `
 
 const CloseBtn = styled.div`
   cursor: pointer;
-  background: ${props => props.theme.color.defaultmdColor};
   width: 30px;
   height: 30px;
   display: flex;
@@ -78,7 +99,6 @@ const CloseBtn = styled.div`
 
 const DragBox = styled.div`
   cursor: move;
-  background: ${props => props.theme.color.defaultDotColor};
   width: 100;
   height: 30px;
   flex: 1;
@@ -91,8 +111,12 @@ const DragBox = styled.div`
 
 const TextBox = styled.div`
   padding: 32px;
-  background: ${props => props.theme.color.defaultBgColor};
+  background-image: 
+    linear-gradient(to bottom, transparent, transparent 10%, ${props => props.theme.color.defaultBgColor} 10%),
+    linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 10%, ${props => props.theme.color.defaultBgColor} 10%);
+  background-size: 12px 12px;
   color: ${props => props.theme.color.defaultColor};
+
 `
 
 const Text = styled.div`

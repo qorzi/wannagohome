@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-function MapTest() {
+function KoreaMap() {
   const mapData = {
     서울: {
       top: 49, left: 88, width: 34, 
@@ -96,20 +96,12 @@ function MapTest() {
   )
 }
 
-export default MapTest;
+export default KoreaMap;
 
 const Map = styled.div`
   position: relative;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  border-bottom: 3px solid;
-  border-right: 3px solid;
   width: 350px;
   height: 500px;
-  background-image: 
-    linear-gradient(to bottom, transparent, transparent 10%, ${props => props.theme.color.defaultBgColor} 10%),
-    linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 10%, ${props => props.theme.color.defaultBgColor} 10%);
-  background-size: 12px 12px;
 `
 
 const Area = styled.svg<any>`
