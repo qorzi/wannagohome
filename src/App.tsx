@@ -10,6 +10,7 @@ import MatterStepOne from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
 
 import Timer from './pages/count/timer';
+import Map from './pages/statistics/map';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -25,6 +26,7 @@ function App() {
             <Route path='/count' element={<MatterStepOne theme={ theme }/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
             <Route path='/timer' element={<Timer theme={ theme }/>}/>
+            <Route path='/statistics' element={<Map/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>
