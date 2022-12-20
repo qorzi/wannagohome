@@ -11,7 +11,11 @@ import BlueScreen from './pages/blueScreen/BlueScreen';
 import Timer from './pages/count/timer';
 import Map from './pages/statistics/map';
 import Shutdown from './pages/shutdown/Shutdown';
+
 import MapTest from './pages/MapTest';
+
+import DraggableModal from './pages/statistics/draggableModal';
+
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -30,6 +34,7 @@ function App() {
             <Route path='/statistics' element={<Map/>}/>
             <Route path='/maptest' element={<MapTest/>}/>
             <Route path='/Shutdown' element={<Shutdown/>}/>
+            <Route path='/modal' element={<DraggableModal/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>

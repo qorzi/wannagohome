@@ -2,8 +2,6 @@ import darkButton from '../assets/darkButton.png'
 import darkButtonHover from '../assets/darkButtonHover.png'
 import lightButton from '../assets/lightButton.png'
 import lightButtonHover from '../assets/lightButtonHover.png'
-import darkwngImg from '../assets/wannagohomeWordsDark.png'
-import lightwngImg from '../assets/wannagohomeWordsLight.png'
 import runDark1 from '../assets/runDark/runDark1.png'
 import runDark2 from '../assets/runDark/runDark2.png'
 import runDark3 from '../assets/runDark/runDark3.png'
@@ -20,6 +18,7 @@ export const dark = {
     defaultBgColor: '#333333',
     defaultDotColor: '#666666',
     defaultColor: '#ffffff',
+    defaultmdColor: '#aaaaaa',
   },
   button: {
     themeButtonSrc: lightButton,
@@ -36,6 +35,7 @@ export const light = {
     defaultBgColor: '#ffffff',
     defaultDotColor: '#aaaaaa',
     defaultColor: '#333333',
+    defaultmdColor: '#666666',
   },
   button: {
     themeButtonSrc: darkButton,
