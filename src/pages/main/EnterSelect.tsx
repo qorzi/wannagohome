@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import EnterTitle from './EnterSelectTitle'
 import EnterButton from './EnterSelectButton'
 
-import { dark, light } from '../../theme/theme';
-
 function EnterSelect() {
   const [showLine, setShowLines] = useState(1)
 
