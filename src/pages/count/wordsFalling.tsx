@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { ReactComponent as WannaGohome } from '../../assets/wannagohome.svg'
 import { dark, light } from '../../theme/theme';
 
+import Timer from './timer';
+
 const STATIC_DENSITY = 60;
 const PARTICLE_SIZE = 18;
 const PARTICLE_BOUNCYNESS = 0.3;
@@ -235,8 +237,7 @@ export const MatterStepOne = (props:any) => {
       >
         <canvas ref={canvasRef}/>
       </MatterBox>
-    
-      <WannaGohome ref={svgRef} style={{position:'absolute'}}/>
+      <Timer theme={props.theme}></Timer>
     </>
 
   )

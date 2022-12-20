@@ -8,8 +8,7 @@ import { RecoilRoot,atom,selector,useRecoilState,useRecoilValue } from 'recoil';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import MatterStepOne from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
-
-import Timer from './pages/count/timer';
+import Shutdown from './pages/shutdown/Shutdown';
 
 function App() {
   const [themeMode, toggleTheme] = useTheme()
@@ -24,7 +23,7 @@ function App() {
             <Route path='/' element={<Enter></Enter>}/>
             <Route path='/count' element={<MatterStepOne theme={ theme }/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
-            <Route path='/timer' element={<Timer theme={ theme }/>}/>
+            <Route path='/Shutdown' element={<Shutdown/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>
