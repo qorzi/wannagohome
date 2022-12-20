@@ -25,9 +25,6 @@ export const dark = {
     themeButtonSrc: lightButton,
     themeButtonHoverSrc: lightButtonHover,
   },
-  img: {
-    darkwngImg: darkwngImg,
-  },
   runner: [
     runLight1, runLight2, runLight3, runLight4
   ],
@@ -43,9 +40,6 @@ export const light = {
   button: {
     themeButtonSrc: darkButton,
     themeButtonHoverSrc: darkButtonHover,
-  },
-  img: {
-    lightwngImg: lightwngImg,
   },
   runner: [
     runDark1, runDark2, runDark3, runDark4
