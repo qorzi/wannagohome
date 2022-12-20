@@ -8,8 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Paper, { PaperProps } from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import styled from 'styled-components';
-
-import KoreaMap from './KoreaMap'
+import Map from './map'
 
 function PaperComponent(props: PaperProps) {
   return (
@@ -50,8 +49,7 @@ export default function DraggableModal(props:any) {
         </UpperTab>
 
         <TextBox>
-          <Text>Text</Text>
-          <KoreaMap></KoreaMap>
+          <Map></Map>
         </TextBox>
       </StyledDialog>
     </div>
