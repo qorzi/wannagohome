@@ -3,13 +3,12 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
 
 function Runner(props:any) {
-  const runnerArray: any = [...props.theme.theme.runner]
+  const runnerArray: any = [...props.theme.runner]
 
   const [runner, setRunner] = useState('')
   const [runnerCount, setRunnerCount] = useState(0)
 
   useEffect(() => {
-    console.log(props.theme)
     const loadSpinner = setInterval(() => {
       setRunner(runnerArray[runnerCount])
       if (runnerCount < 3) {
@@ -22,40 +21,52 @@ function Runner(props:any) {
   })
 
   return (
-    <div>
-      <Road>
-        <RunImg timeProgress={props.timerProgress} src={runner}></RunImg>
-        <Progress theme={props.theme}>{(props.timerProgress).toFixed(3)}%</Progress>
-        <HomeImg theme={props.theme}></HomeImg>
+    <RunMain>
+      <Road theme={props.theme} timeProgress={props.timerProgress}>
+        <Run timeProgress={props.timerProgress}>
+          <RunImg src={runner}></RunImg>
+          <Progress theme={props.theme}>{(props.timerProgress).toFixed(3)}%</Progress>
+        </Run>
       </Road>
-    </div>
+      <HomeImg theme={props.theme}></HomeImg>
+    </RunMain>
   )
 }
 
 export default Runner;
 
-const Road = styled.div`
+const RunMain = styled.div`
+  display: flex;
+  margin-top: 25px;
+`
+
+const Road = styled.div<any>`
+  position: relative;timeProgress
   display: flex;
   width: 70vw;
   max-width: 400px;
-  height: 45px;
-  position: relative;
+  height: 33px;
+  border-bottom: 2px dotted ${props => props.theme.color.defaultDotColor};
+`
+
+const Run = styled.div<any>`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: ${props => props.timeProgress}%;
 `
 
 const RunImg = styled.img<any>`
   margin: 0px;
+  width: 20px;
   height: 30px;
-  position: absolute;
-  left: ${props => props.timeProgress}%;
   bottom: 0px;
   transition: all;
 `
 
 const HomeImg = styled.div`
   display: inline-block;
-  background-image: url(${props => props.theme.theme.home});
-  position: absolute;
-  left: 100%;
+  background-image: url(${props => props.theme.home});
   bottom: 0px;
   background-size: cover;
   width: 30px;
@@ -63,5 +74,7 @@ const HomeImg = styled.div`
 `
 
 const Progress = styled.div`
-  color: ${props => props.theme.theme.color.defaultDotColor};
+  color: ${props => props.theme.color.defaultColor};
+  font-size: 16px;
+  margin-block: -15px;
 `

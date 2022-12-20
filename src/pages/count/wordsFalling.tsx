@@ -9,6 +9,8 @@ import darkWngImg from '../../assets/darkWannagohomeWords.png'
 import grayWngImg from '../../assets/grayWannagohomeWords.png'
 import lightWngImg from '../../assets/lightWannagohomeWords.png'
 
+import Timer from './timer';
+
 const STATIC_DENSITY = 60;
 const PARTICLE_SIZE = 18;
 const PARTICLE_BOUNCYNESS = 0.3;
@@ -241,6 +243,7 @@ export const MatterStepOne = (props:any) => {
       >
         <canvas ref={canvasRef}/>
       </MatterBox>
+      <Timer theme={props.theme}></Timer>
       <WannaGohome ref={svgRef} style={{position:'absolute'}}/>
     </>
 
