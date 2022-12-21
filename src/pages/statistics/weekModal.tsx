@@ -1,14 +1,10 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Paper, { PaperProps } from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import styled from 'styled-components';
-import Map from './map'
+import Week from './week'
 
 function PaperComponent(props: PaperProps) {
   return (
@@ -21,7 +17,7 @@ function PaperComponent(props: PaperProps) {
   );
 }
 
-export default function DraggableModal(props:any) {
+export default function WeekModal(props:any) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -45,11 +41,11 @@ export default function DraggableModal(props:any) {
       >
         <UpperTab>
           <CloseBtn onClick={handleClose} ><p>✕</p></CloseBtn>
-          <DragBox id="draggable-dialog-title"><p>지역별 현황</p></DragBox>
+          <DragBox id="draggable-dialog-title"><p>요일별 현황</p></DragBox>
         </UpperTab>
 
         <TextBox>
-          <Map></Map>
+          <Week/>
         </TextBox>
       </StyledDialog>
     </div>
@@ -108,16 +104,11 @@ const DragBox = styled.div`
 `
 
 const TextBox = styled.div`
-  padding: 32px;
+  padding: 15px;
   background-image: 
     linear-gradient(to bottom, transparent, transparent 10%, ${props => props.theme.color.defaultBgColor} 10%),
     linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 10%, ${props => props.theme.color.defaultBgColor} 10%);
   background-size: 12px 12px;
   color: ${props => props.theme.color.defaultColor};
 
-`
-
-const Text = styled.div`
-  color: ${props => props.theme.color.defaultColor};
-  font-family: 'DungGeunMo';
 `

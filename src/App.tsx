@@ -11,8 +11,8 @@ import BlueScreen from './pages/blueScreen/BlueScreen';
 import Timer from './pages/count/timer';
 import Map from './pages/statistics/map';
 import Shutdown from './pages/shutdown/Shutdown';
-
-import DraggableModal from './pages/statistics/draggableModal';
+import MapModal from './pages/statistics/mapModal';
+import WeekModal from './pages/statistics/weekModal';
 
 
 function App() {
@@ -31,7 +31,8 @@ function App() {
             <Route path='/timer' element={<Timer theme={ theme }/>}/>
             <Route path='/statistics' element={<Map/>}/>
             <Route path='/Shutdown' element={<Shutdown/>}/>
-            <Route path='/modal' element={<DraggableModal/>}/>
+            <Route path='/modal1' element={<MapModal/>}/>
+            <Route path='/modal2' element={<WeekModal/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>
