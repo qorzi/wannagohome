@@ -55,8 +55,10 @@ export default function MapModal(props:any) {
 }
 
 const StyledDialog = styled(Dialog)`
+
   .MuiBackdrop-root {
     background: none;
+   
   }
   .MuiDialog-container {
 
