@@ -22,3 +22,17 @@ import { atom } from "recoil";
 //     name: "관리자"
 //   }
 // });
+
+// export interface Modal {
+//   open: boolean
+// }
+
+export const weekModal = atom({
+  key: "weekModal",
+  default: false
+})
+
+export const mapModal = atom({
+  key: "mapModal",
+  default: false
+})

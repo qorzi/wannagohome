@@ -5,6 +5,8 @@ import Paper, { PaperProps } from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import styled from 'styled-components';
 import Week from './week'
+import { useRecoilState } from 'recoil';
+import { weekModal } from '../../atom'
 
 function PaperComponent(props: PaperProps) {
   return (
@@ -18,7 +20,7 @@ function PaperComponent(props: PaperProps) {
 }
 
 export default function WeekModal(props:any) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useRecoilState(weekModal);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,9 +32,9 @@ export default function WeekModal(props:any) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open draggable dialog
-      </Button>
+      </Button> */}
       <StyledDialog
         open={open}
         // onClose={handleClose}
