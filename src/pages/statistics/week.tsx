@@ -7,8 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useRecoilState } from 'recoil';
+import { countData } from '../../atom';
 
 export default function Week() {
+
   return (
     <>
       <WeekBox>
@@ -30,25 +33,53 @@ const TitleBox = styled.p`
   padding-bottom: 16px;
 `
 
+interface RegionType {
+  [key: string]: {
+    [key: string]: number
+  }
+}
+
+interface RegionDataType {
+  [key: string]: RegionType | string | number
+}
+
 function createData(
   day: string,
-  count: number,
-  difference: number,
+  count: any,
+  difference: any,
 ) {
   return { day, count, difference };
 }
 
-const rows = [
-  createData('일요일', 159, 6.0),
-  createData('월요일', 159, 6.0),
-  createData('화요일', 237, 9.0),
-  createData('수요일', 262, 16.0),
-  createData('목요일', 305, 3.7),
-  createData('금요일', 305, 3.7),
-  createData('토요일', 305, 3.7),
-];
+function upToDown(data1:any, data2:any) {
+  // data['0']['전체카운트']
+  const difference = data1 - data2
+  // console.log(difference)
+  if (difference > 0) {
+    return difference + ' ↑'
+  } else if (difference < 0) {
+    return difference + ' ↓'
+  } else {
+    return '-'
+  }
+}
 
 function TableView() {
+
+
+  const [data, setData] = useRecoilState<RegionDataType[]>(countData)
+  console.log(data)
+
+  const rows = [
+    createData('일요일', data['0']['전체카운트'], upToDown(data['0']['전체카운트'], data['6']['전체카운트'])),
+    createData('월요일', data['1']['전체카운트'], upToDown(data['1']['전체카운트'], data['0']['전체카운트'])),
+    createData('화요일', data['2']['전체카운트'], upToDown(data['2']['전체카운트'], data['1']['전체카운트'])),
+    createData('수요일', data['3']['전체카운트'], upToDown(data['3']['전체카운트'], data['2']['전체카운트'])),
+    createData('목요일', data['4']['전체카운트'], upToDown(data['4']['전체카운트'], data['3']['전체카운트'])),
+    createData('금요일', data['5']['전체카운트'], upToDown(data['5']['전체카운트'], data['4']['전체카운트'])),
+    createData('토요일', data['6']['전체카운트'], upToDown(data['6']['전체카운트'], data['5']['전체카운트'])),
+  ];
+
   return (
 
     <StyledTable sx={{ minWidth: 550 }} size="small" aria-label="simple table">

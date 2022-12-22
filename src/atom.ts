@@ -27,6 +27,16 @@ import { atom } from "recoil";
 //   open: boolean
 // }
 
+interface RegionType {
+  [key: string]: {
+    [key: string]: number
+  }
+}
+
+interface RegionDataType {
+  [key: string]: RegionType | string | number
+}
+
 export const weekModal = atom({
   key: "weekModal",
   default: false
@@ -39,5 +49,5 @@ export const mapModal = atom({
 
 export const countData = atom({
   key: "countData",
-  default: {}
+  default: [] as RegionDataType[]
 })

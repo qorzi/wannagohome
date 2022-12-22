@@ -1,221 +1,238 @@
 import styled from 'styled-components';
 
-export function Region1() {
+function upToDown(data:any) {
+  // regionData['지역별']['서울']
+  const difference = data['오늘'] - data['어제']
+  // console.log(difference)
+  if (difference > 0) {
+    return difference + '↑'
+  } else if (difference < 0) {
+    return difference + '↓'
+  } else {
+    return '-'
+  }
+}
 
+type Props = {
+  regionData: any
+}
+
+export function Region1({ regionData }: Props ) {
+  // console.log(regionData)
   return (
     <>
       <Info>
         <p>서울</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['서울']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['서울'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region2() {
+export function Region2({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>대구</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['대구']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['대구'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region3() {
+export function Region3({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>인천</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['인천']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['인천'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region4() {
+export function Region4({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>부산</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['부산']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['부산'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region5() {
+export function Region5({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>광주</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['광주']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['광주'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region6() {
+export function Region6({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>대전</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['대전']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['대전'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region7() {
+export function Region7({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>울산</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['울산']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['울산'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region8() {
+export function Region8({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>세종</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['세종']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['세종'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region9() {
+export function Region9({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>경기</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['경기']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['경기'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region10() {
+export function Region10({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>강원</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['강원']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['강원'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region11() {
+export function Region11({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>충북</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['충북']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['충북'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region12() {
+export function Region12({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>충남</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['충남']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['충남'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region13() {
+export function Region13({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>전북</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['전북']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['전북'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region14() {
+export function Region14({ regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>전남</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['전남']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['전남'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region15() {
+export function Region15( { regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>경북</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['경북']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['경북'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region16() {
+export function Region16( { regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>경남</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['경남']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['경남'])}</p>
       </Info>
     </>
   )
 }
 
-export function Region17() {
+export function Region17( { regionData }: Props ) {
 
   return (
     <>
       <Info>
         <p>제주</p>
-        <p>1,004</p>
-        <p>4 ↑</p>
+        <p>{regionData['지역별']['제주']['오늘']}</p>
+        <p>{upToDown(regionData['지역별']['제주'])}</p>
       </Info>
     </>
   )

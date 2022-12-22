@@ -1,11 +1,10 @@
 import './App.scss';
 import Enter from './pages/main/Enter'
-import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { useTheme } from './theme/useTheme';
 import { dark, light } from './theme/theme';
-import { RecoilRoot,atom,selector,useRecoilState,useRecoilValue } from 'recoil';
-import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import { RecoilRoot } from 'recoil';
+import { Routes, Route } from 'react-router-dom'
 import MatterStepOne from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
 import Timer from './pages/count/timer';
