@@ -81,14 +81,14 @@ export default function ModalTest() {
     <DraggableBackground onMouseMove={ (event: any) => {mouseMove(event)} }>
       <Modal setting={modalPosition.map} z={modalZIndex.map} onClick={() => {moveFront("map")}}>
         <ModalDragBar onMouseDown={ dragStart('map') } onMouseUp={ dragEnd() } z={modalZIndex.map}>
-          <ModalCloseButton>X</ModalCloseButton>
-          <ModalTitle>map</ModalTitle>
+          <ModalCloseButton>×</ModalCloseButton>
+          <ModalTitle z={modalZIndex.map}>map</ModalTitle>
         </ModalDragBar>
       </Modal>
       <Modal setting={modalPosition.week} z={modalZIndex.week} onClick={() => {moveFront("week")}}>
         <ModalDragBar onMouseDown={ dragStart('week') } onMouseUp={ dragEnd() } z={modalZIndex.week}>
-          <ModalCloseButton>X</ModalCloseButton>
-          <ModalTitle>week</ModalTitle>
+          <ModalCloseButton>×</ModalCloseButton>
+          <ModalTitle z={modalZIndex.week}>week</ModalTitle>
         </ModalDragBar>
       </Modal>
     </DraggableBackground>
@@ -107,13 +107,7 @@ const Modal = styled.div<any>`
   left: ${props => props.setting.left}px;
   width: 350px;
   height: 500px;
-  border:  1px solid ${props => {
-    if (props.z === 99) {
-      return props.theme.color.defaultColor
-    } else {
-      return props.theme.color.defaultDotColor
-    }
-  }};
+  border:  1px solid;
   background-image: 
     linear-gradient(to bottom, transparent, transparent 10%, ${props => props.theme.color.defaultBgColor} 10%),
     linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 10%, ${props => props.theme.color.defaultBgColor} 10%);
@@ -128,13 +122,7 @@ const Modal = styled.div<any>`
 `
 const ModalDragBar = styled.div<any>`
   height: 30px;
-  border-bottom: 1px solid ${props => {
-    if (props.z === 99) {
-      return props.theme.color.defaultColor
-    } else {
-      return props.theme.color.defaultDotColor
-    }
-  }};
+  border-bottom: 1px solid;
   cursor: grab;
   background-image: 
     linear-gradient(to bottom, transparent, transparent 30%, ${props => props.theme.color.defaultBgColor} 30%),
@@ -146,13 +134,32 @@ const ModalDragBar = styled.div<any>`
 `
 
 const ModalCloseButton = styled.div<any>`
+  cursor: default;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
+  font-size: 25px;
+  &:hover {
+    background: red;
+  }
 `
 
 const ModalTitle = styled.div<any>`
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 30px;
+  font-size: 18px;
+  line-height: 18px;
+  color: ${props => {
+    if (props.z === 99) {
+      return props.theme.color.defaultColor
+    } else {
+      return props.theme.color.defaultDotColor
+    }
+  }};
 `
