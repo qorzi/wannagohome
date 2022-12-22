@@ -56,9 +56,8 @@ export default function WeekModal(props:any) {
 
 const StyledDialog = styled(Dialog)<any>`
   // 겹친 영역 이벤트 처리, z-index를 무시하고 HTML 요소에 정의된 이벤트를 비활성화 한다.
-  // z-index: 999;
   // auto, none 존재
-  // pointer-events: ${props => props.over ? 'auto' : 'none' };
+  // pointer-events: auto;
 
   .MuiBackdrop-root {
     background: none;
@@ -67,6 +66,7 @@ const StyledDialog = styled(Dialog)<any>`
   .MuiDialog-container {
 
   }
+
   .MuiPaper-root {
     border-top: 1px solid ${props => props.theme.color.defaultColor};
     border-left: 1px solid ${props => props.theme.color.defaultColor};
