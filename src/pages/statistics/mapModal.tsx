@@ -58,11 +58,12 @@ const StyledDialog = styled(Dialog)`
 
   .MuiBackdrop-root {
     background: none;
-   
   }
+
   .MuiDialog-container {
 
   }
+
   .MuiPaper-root {
     border-top: 1px solid ${props => props.theme.color.defaultColor};
     border-left: 1px solid ${props => props.theme.color.defaultColor};

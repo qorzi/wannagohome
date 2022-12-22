@@ -36,3 +36,8 @@ export const mapModal = atom({
   key: "mapModal",
   default: false
 })
+
+export const countData = atom({
+  key: "countData",
+  default: {}
+})
