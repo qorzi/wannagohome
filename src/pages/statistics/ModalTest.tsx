@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-
 import MapModal from './modals/Map'
 import WeekModal from './modals/Week'
 
 export default function ModalTest() {
+
   // 각 모달의 위치 값
   const [modalPosition, setModalPosition] = useState<any>({
     map: { top: 20, left: 20 },
