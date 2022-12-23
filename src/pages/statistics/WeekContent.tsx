@@ -1,12 +1,9 @@
 import styled from 'styled-components';
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { useRecoilState } from 'recoil';
 import { countData } from '../../atom';
 
@@ -33,16 +30,6 @@ const TitleBox = styled.p`
   padding-bottom: 16px;
 `
 
-interface RegionType {
-  [key: string]: {
-    [key: string]: number
-  }
-}
-
-interface RegionDataType {
-  [key: string]: RegionType | string | number
-}
-
 function createData(
   day: string,
   count: any,
@@ -64,8 +51,17 @@ function upToDown(data1:any, data2:any) {
   }
 }
 
-function TableView() {
+interface RegionType {
+  [key: string]: {
+    [key: string]: number
+  }
+}
 
+interface RegionDataType {
+  [key: string]: RegionType | string | number
+}
+
+function TableView() {
 
   const [data, setData] = useRecoilState<RegionDataType[]>(countData)
   console.log(data)
