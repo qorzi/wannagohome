@@ -20,7 +20,7 @@ function TimerCount(props:any) {
     const date = new Date()
     setStartTime(date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds())
     setCurrentTimer(targetTime - (date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds()))
-  }, [])
+  }, [currentTimer])
 
   // 타이머 작동함수
   const timerWork = () => {
