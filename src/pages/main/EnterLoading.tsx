@@ -17,7 +17,7 @@ function EnterLoading() {
       } else {
         setSpinnerCount(0)
       }
-      console.log(spinnerCount, String(progress))
+      // console.log(spinnerCount, String(progress))
     }, 100)
     if (progress >= 100) {
       clearInterval(loadSpinner)
