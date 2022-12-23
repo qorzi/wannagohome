@@ -7,8 +7,8 @@ import WeekModal from './modals/Week'
 export default function ModalTest() {
   // 각 모달의 위치 값
   const [modalPosition, setModalPosition] = useState<any>({
-    map: { top: 20, left: 20 },
-    week: { top: 50, left: 50 }
+    map: { top: 50, left: 50 },
+    week: { top: 100, left: 60 }
   })
 
   // 각 모달의 z-index값
@@ -84,26 +84,41 @@ export default function ModalTest() {
     }
   }
 
-  // 모달창 태그 설정
-  const mapModal = <MapModal key={1} title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></MapModal>
-  const weekModal = <WeekModal title={'week'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></WeekModal>
+  // 열려있는 modal count(리렌더링용)
+  const [openModalCount, setOpenModalCount] = useState(0)
 
+  // modal 여는 함수
   const openModal = (name: string) => {
     const newIsOpen = isOpen
     for (let key in newIsOpen) {
       if (key === name) {
-        newIsOpen[key] = !newIsOpen[key]
+        newIsOpen[key] = true
       }
     }
+    setOpenModalCount(openModalCount + 1)
     setIsOpen(newIsOpen)
-    console.log(isOpen)
-  }
+  } 
+  // modal 닫는 함수
+  const closeModal = (name: string) => {
+    const newIsOpen = isOpen
+    for (let key in newIsOpen) {
+      if (key === name) {
+        newIsOpen[key] = false
+      }
+    }
+    setOpenModalCount(openModalCount - 1)
+    setIsOpen(newIsOpen)
+  } 
+  // 모달창 태그 설정
+  const mapModal = <MapModal key={1} title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd} closeModal={closeModal}></MapModal>
+  const weekModal = <WeekModal title={'week'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd} closeModal={closeModal}></WeekModal>
 
   return (
     <DraggableBackground onMouseMove={ (event: any) => {mouseMove(event)} }>
       {isOpen.map && mapModal}
-      {weekModal}
+      {isOpen.week && weekModal}
       <button onClick={() => {openModal('map')}}>Map</button>
+      <button onClick={() => {openModal('week')}}>Week</button>
     </DraggableBackground>
   )
 }
