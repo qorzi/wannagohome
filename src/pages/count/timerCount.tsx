@@ -26,7 +26,7 @@ function TimerCount(props:any) {
   const timerWork = () => {
     setTimerProgress(100 - currentTimer / (targetTime - startTime) * 100)
     setCurrentTimer(currentTimer - 1)
-    console.log(currentTimer)
+    // console.log(currentTimer)
     
     if (currentTimer === 0) {
       navigate('/shutdown')
