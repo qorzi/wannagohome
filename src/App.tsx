@@ -11,6 +11,7 @@ import Timer from './pages/count/timer';
 import Map from './pages/statistics/map';
 import Shutdown from './pages/shutdown/Shutdown';
 import Modal from './pages/statistics/modal';
+import ModalTest from './pages/statistics/ModalTest';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path='/timer' element={<Timer theme={ theme }/>}/>
             <Route path='/statistics' element={<Map/>}/>
             <Route path='/Shutdown' element={<Shutdown/>}/>
+            <Route path='/ModalTest' element={<ModalTest/>}/>
             <Route path='/modal' element={<Modal/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
