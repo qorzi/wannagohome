@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
+import MapModal from './modals/Map'
+import WeekModal from './modals/Week'
+
 export default function ModalTest() {
   // 각 모달의 위치 값
   const [modalPosition, setModalPosition] = useState<any>({
@@ -12,6 +15,10 @@ export default function ModalTest() {
   const [modalZIndex, setModalZIndex] = useState<any>({
     map: 0,
     week: 0
+  })
+  const [isOpen, setIsOpen] = useState<any>({
+    map: false,
+    week: false
   })
 
   // 선택된 창 가장 앞으로 보내기
@@ -77,20 +84,26 @@ export default function ModalTest() {
     }
   }
 
+  // 모달창 태그 설정
+  const mapModal = <MapModal key={1} title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></MapModal>
+  const weekModal = <WeekModal title={'week'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></WeekModal>
+
+  const openModal = (name: string) => {
+    const newIsOpen = isOpen
+    for (let key in newIsOpen) {
+      if (key === name) {
+        newIsOpen[key] = !newIsOpen[key]
+      }
+    }
+    setIsOpen(newIsOpen)
+    console.log(isOpen)
+  }
+
   return (
     <DraggableBackground onMouseMove={ (event: any) => {mouseMove(event)} }>
-      <Modal setting={modalPosition.map} z={modalZIndex.map} onClick={() => {moveFront("map")}}>
-        <ModalDragBar onMouseDown={ dragStart('map') } onMouseUp={ dragEnd() } z={modalZIndex.map}>
-          <ModalCloseButton>×</ModalCloseButton>
-          <ModalTitle z={modalZIndex.map}>map</ModalTitle>
-        </ModalDragBar>
-      </Modal>
-      <Modal setting={modalPosition.week} z={modalZIndex.week} onClick={() => {moveFront("week")}}>
-        <ModalDragBar onMouseDown={ dragStart('week') } onMouseUp={ dragEnd() } z={modalZIndex.week}>
-          <ModalCloseButton>×</ModalCloseButton>
-          <ModalTitle z={modalZIndex.week}>week</ModalTitle>
-        </ModalDragBar>
-      </Modal>
+      {isOpen.map && mapModal}
+      {weekModal}
+      <button onClick={() => {openModal('map')}}>Map</button>
     </DraggableBackground>
   )
 }
@@ -98,68 +111,4 @@ export default function ModalTest() {
 const DraggableBackground = styled.div`
   width: 100vw;
   height: 100vh;
-`
-
-const Modal = styled.div<any>`
-  z-index: ${props => props.z};
-  position: absolute;
-  top: ${props => props.setting.top}px;
-  left: ${props => props.setting.left}px;
-  width: 350px;
-  height: 500px;
-  border:  1px solid;
-  background-image: 
-    linear-gradient(to bottom, transparent, transparent 10%, ${props => props.theme.color.defaultBgColor} 10%),
-    linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 10%, ${props => props.theme.color.defaultBgColor} 10%);
-  background-size: 12px 12px;
-  box-shadow: 3px 3px 0px 0px ${props => {
-    if (props.z === 99) {
-      return props.theme.color.defaultColor
-    } else {
-      return props.theme.color.defaultDotColor
-    }
-  }};
-`
-const ModalDragBar = styled.div<any>`
-  height: 30px;
-  border-bottom: 1px solid;
-  cursor: grab;
-  background-image: 
-    linear-gradient(to bottom, transparent, transparent 30%, ${props => props.theme.color.defaultBgColor} 30%),
-    linear-gradient(to right, ${props => props.theme.color.defaultDotColor}, ${props => props.theme.color.defaultDotColor} 30%, ${props => props.theme.color.defaultBgColor} 30%);
-  background-size: 3px 3px;
-  &:active {
-    cursor: grabbing;
-  }
-`
-
-const ModalCloseButton = styled.div<any>`
-  cursor: default;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  font-size: 25px;
-  &:hover {
-    background: red;
-  }
-`
-
-const ModalTitle = styled.div<any>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 30px;
-  font-size: 18px;
-  line-height: 18px;
-  color: ${props => {
-    if (props.z === 99) {
-      return props.theme.color.defaultColor
-    } else {
-      return props.theme.color.defaultDotColor
-    }
-  }};
 `
