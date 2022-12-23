@@ -22,6 +22,7 @@ interface modal {
   z: any
   dragStart: any
   dragEnd: any
+  closeModal: any
 }
 
 export default function WeekModal(props: modal) {
@@ -52,7 +53,7 @@ export default function WeekModal(props: modal) {
     return (
       <Modal setting={props.setting[props.title]} z={props.z[props.title]}>
         <ModalDragBar onMouseDown={ props.dragStart(props.title) } onMouseUp={ props.dragEnd() } z={props.z[props.title]}>
-          <ModalCloseButton>×</ModalCloseButton>
+          <ModalCloseButton onClick={() => {props.closeModal(props.title)}}>×</ModalCloseButton>
           <ModalTitle z={props.z[props.title]}>{props.title}</ModalTitle>
         </ModalDragBar>
         <ContentBox>
@@ -60,7 +61,6 @@ export default function WeekModal(props: modal) {
         </ContentBox>
       </Modal>
     )
-
   }
 }
 
