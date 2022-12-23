@@ -250,8 +250,8 @@ const Info = styled.div`
   justify-content: center;
   align-items: center;
   background: ${props => props.theme.color.defaultBgColor};
-  width: 50px;
-  padding: 4px;
+  // width: 50px;
+  padding: 6px;
   position: absolute;
   font-size: 16px;
   line-height: 16px;

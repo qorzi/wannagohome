@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-function KoreaMap() {
+function KoreaMap({todayData}:any) {
+
+  const computedRatio = (region:string) => {
+    const total = Number(todayData['전체카운트'])
+    const avg = Number(total/17)
+    const ratio = 50 + (Number(todayData['지역별'][region]['오늘']) - avg)/total*100
+    return Number(ratio)
+  }
   const mapData = {
     서울: {
       top: 49, left: 88, width: 34, 
@@ -75,23 +82,23 @@ function KoreaMap() {
 
   return (
     <Map>
-      <Area ratio={100} size={3} mapData={mapData.서울}></Area>
-      <Area ratio={80} size={3} mapData={mapData.경기}></Area>
-      <Area ratio={20} size={3} mapData={mapData.인천}></Area>
-      <Area ratio={30} size={3} mapData={mapData.대전}></Area>
-      <Area ratio={40} size={3} mapData={mapData.세종}></Area>
-      <Area ratio={80} size={3} mapData={mapData.충남}></Area>
-      <Area ratio={80} size={3} mapData={mapData.충북}></Area>
-      <Area ratio={40} size={3} mapData={mapData.강원}></Area>
-      <Area ratio={100} size={3} mapData={mapData.대구}></Area>
-      <Area ratio={70} size={3} mapData={mapData.부산}></Area>
-      <Area ratio={20} size={3} mapData={mapData.울산}></Area>
-      <Area ratio={100} size={3} mapData={mapData.경북}></Area>
-      <Area ratio={80} size={3} mapData={mapData.경남}></Area>
-      <Area ratio={50} size={3} mapData={mapData.광주}></Area>
-      <Area ratio={60} size={3} mapData={mapData.전북}></Area>
-      <Area ratio={70} size={3} mapData={mapData.전남}></Area>
-      <Area ratio={30} size={3} mapData={mapData.제주}></Area>
+      <Area ratio={computedRatio('서울')} size={3} mapData={mapData.서울}></Area>
+      <Area ratio={computedRatio('경기')} size={3} mapData={mapData.경기}></Area>
+      <Area ratio={computedRatio('인천')} size={3} mapData={mapData.인천}></Area>
+      <Area ratio={computedRatio('대전')} size={3} mapData={mapData.대전}></Area>
+      <Area ratio={computedRatio('세종')} size={3} mapData={mapData.세종}></Area>
+      <Area ratio={computedRatio("충남")} size={3} mapData={mapData.충남}></Area>
+      <Area ratio={computedRatio('충북')} size={3} mapData={mapData.충북}></Area>
+      <Area ratio={computedRatio('강원')} size={3} mapData={mapData.강원}></Area>
+      <Area ratio={computedRatio('대구')} size={3} mapData={mapData.대구}></Area>
+      <Area ratio={computedRatio('부산')} size={3} mapData={mapData.부산}></Area>
+      <Area ratio={computedRatio('울산')} size={3} mapData={mapData.울산}></Area>
+      <Area ratio={computedRatio('경북')} size={3} mapData={mapData.경북}></Area>
+      <Area ratio={computedRatio('경남')} size={3} mapData={mapData.경남}></Area>
+      <Area ratio={computedRatio('광주')} size={3} mapData={mapData.광주}></Area>
+      <Area ratio={computedRatio('전북')} size={3} mapData={mapData.전북}></Area>
+      <Area ratio={computedRatio('전남')} size={3} mapData={mapData.전남}></Area>
+      <Area ratio={computedRatio('제주')} size={3} mapData={mapData.제주}></Area>
     </Map>
   )
 }

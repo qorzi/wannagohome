@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import MapModal from './modals/Map'
 import WeekModal from './modals/Week'
+import Timer from '../count/timer';
 
-export default function ModalTest() {
+export default function Modal({ theme }:any) {
 
   // 각 모달의 위치 값
   const [modalPosition, setModalPosition] = useState<any>({
-    map: { top: 50, left: 50 },
-    week: { top: 100, left: 60 }
+    map: { top: 120, left: 50 },
+    week: { top: 50, left: 260 }
   })
 
   // 각 모달의 z-index값
@@ -115,10 +116,13 @@ export default function ModalTest() {
 
   return (
     <DraggableBackground onMouseMove={ (event: any) => {mouseMove(event)} }>
+      <TimerBox>
+        <Timer theme={ theme } openModal={ openModal }/>
+      </TimerBox>
       {isOpen.map && mapModal}
       {isOpen.week && weekModal}
-      <button onClick={() => {openModal('map')}}>Map</button>
-      <button onClick={() => {openModal('week')}}>Week</button>
+      {/* <button onClick={() => {openModal('map')}}>Map</button>
+      <button onClick={() => {openModal('week')}}>Week</button> */}
     </DraggableBackground>
   )
 }
@@ -126,4 +130,14 @@ export default function ModalTest() {
 const DraggableBackground = styled.div`
   width: 100vw;
   height: 100vh;
+`
+
+const TimerBox = styled.div`
+  // position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 `

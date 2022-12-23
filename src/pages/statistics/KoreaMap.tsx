@@ -49,7 +49,7 @@ function Map() {
   return (
     <>
       <MapBox>
-        <KoreaPath></KoreaPath>
+        <KoreaPath todayData={todayData}></KoreaPath>
       </MapBox>
       <RegionBox>
         <Region1 regionData={todayData} />

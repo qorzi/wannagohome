@@ -5,12 +5,12 @@ import { useTheme } from './theme/useTheme';
 import { dark, light } from './theme/theme';
 import { RecoilRoot } from 'recoil';
 import { Routes, Route } from 'react-router-dom'
-import MatterStepOne from './pages/count/wordsFalling';
+import MatterScene from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
 import Timer from './pages/count/timer';
 import Map from './pages/statistics/KoreaMap';
 import Shutdown from './pages/shutdown/Shutdown';
-import ModalTest from './pages/statistics/ModalTest';
+import ModalTest from './pages/statistics/Modal';
 
 
 function App() {
@@ -24,12 +24,11 @@ function App() {
           <ThemeButton onClick={ toggleTheme }></ThemeButton>
           <Routes>
             <Route path='/' element={<Enter></Enter>}/>
-            <Route path='/count' element={<MatterStepOne theme={ theme }/>}/>
+            <Route path='/count' element={<MatterScene theme={ theme }/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
-            <Route path='/timer' element={<Timer theme={ theme }/>}/>
-            <Route path='/statistics' element={<Map/>}/>
+            {/* <Route path='/timer' element={<ModalTest theme={ theme }/>}/> */}
+            {/* <Route path='/statistics' element={<Map/>}/> */}
             <Route path='/Shutdown' element={<Shutdown/>}/>
-            <Route path='/ModalTest' element={<ModalTest/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>
@@ -58,6 +57,7 @@ const Main = styled.div`
 `
 
 const ThemeButton = styled.div`
+  z-index: 999;
   position: fixed;
   right: 20px;
   bottom: 20px;
