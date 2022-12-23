@@ -1,4 +1,3 @@
-// MatterStepOne.js
 import React, { useEffect, useRef, useState } from 'react';
 import Matter, { Vector } from 'matter-js';
 import styled from 'styled-components';
@@ -7,8 +6,7 @@ import { dark, light } from '../../theme/theme';
 import darkWngImg from '../../assets/darkWannagohomeWords.png'
 import grayWngImg from '../../assets/grayWannagohomeWords.png'
 import lightWngImg from '../../assets/lightWannagohomeWords.png'
-
-import Timer from './timer';
+import Modal from '../statistics/Modal';
 
 const STATIC_DENSITY = 60;
 const PARTICLE_SIZE = 18;
@@ -16,7 +14,7 @@ const PARTICLE_BOUNCYNESS = 0.3;
 
 const words = [darkWngImg, grayWngImg, lightWngImg]
 
-export const MatterStepOne = (props:any) => {
+export const MatterScene = ({theme}:any) => {
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);
   const svgRef = useRef<any>(null);
@@ -101,17 +99,6 @@ export const MatterStepOne = (props:any) => {
         fillStyle: 'transparent'
       }
     })
-
-    // const text = Bodies.rectangle(300, -PARTICLE_SIZE, 55, 8, {
-    //   restitution: PARTICLE_BOUNCYNESS*2,
-    //   render: {
-    //     sprite: {
-    //       texture: props.themeMode === 'dark' ? dark.img.darkwngImg : light.img.lightwngImg,
-    //       xScale: 0.2,
-    //       yScale: 0.2
-    //     }
-    //   }
-    // })
 
     World.add(world, [floor, wallRight, wallLeft, ball]);
 
@@ -242,13 +229,14 @@ export const MatterStepOne = (props:any) => {
       >
         <canvas ref={canvasRef}/>
       </MatterBox>
-      <Timer theme={props.theme}></Timer>
+      <ModalBox>
+        <Modal theme={ theme }/>
+      </ModalBox>
     </>
-
   )
 }
 
-export default MatterStepOne;
+export default MatterScene;
 
 const MatterBox = styled.div`
   width: 100vw;
@@ -256,4 +244,8 @@ const MatterBox = styled.div`
   position: 'absolute',
   top: 0,
   left: 0,
+`
+
+const ModalBox = styled.div`
+  position: absolute;
 `
