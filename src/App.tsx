@@ -7,10 +7,7 @@ import { RecoilRoot } from 'recoil';
 import { Routes, Route } from 'react-router-dom'
 import MatterScene from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
-import Timer from './pages/count/timer';
-import Map from './pages/statistics/KoreaMap';
 import Shutdown from './pages/shutdown/Shutdown';
-import ModalTest from './pages/statistics/Modal';
 
 
 function App() {
@@ -26,8 +23,6 @@ function App() {
             <Route path='/' element={<Enter></Enter>}/>
             <Route path='/count' element={<MatterScene theme={ theme }/>}/>
             <Route path='/blue' element={<BlueScreen/>}/>
-            {/* <Route path='/timer' element={<ModalTest theme={ theme }/>}/> */}
-            {/* <Route path='/statistics' element={<Map/>}/> */}
             <Route path='/Shutdown' element={<Shutdown/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>

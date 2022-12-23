@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
 import MapModal from './modals/Map'
 import WeekModal from './modals/Week'
 import Timer from '../count/timer';
@@ -111,7 +111,7 @@ export default function Modal({ theme }:any) {
     setIsOpen(newIsOpen)
   } 
   // 모달창 태그 설정
-  const mapModal = <MapModal key={1} title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd} closeModal={closeModal}></MapModal>
+  const mapModal = <MapModal title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd} closeModal={closeModal}></MapModal>
   const weekModal = <WeekModal title={'week'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd} closeModal={closeModal}></WeekModal>
 
   return (
@@ -133,11 +133,9 @@ const DraggableBackground = styled.div`
 `
 
 const TimerBox = styled.div`
-  // position: absolute;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
 `

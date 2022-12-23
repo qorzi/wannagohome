@@ -46,7 +46,7 @@ const StatBox = styled.div`
 `
 
 const StatBtn = styled.div`
-  margin-top: 20px;
+  margin-top: 32px;
   font-size: 16px;
   line-height: 16px;
   padding: 4px;
