@@ -21,8 +21,6 @@ import {
 } from './RegionInfo';
 import { useRecoilState } from 'recoil';
 import { countData } from '../../atom';
-import { useEffect } from 'react'
-import countDataIn from '../../ajax/countDataIn'
 
 interface RegionType {
   [key: string]: {
@@ -37,21 +35,6 @@ interface RegionDataType {
 function Map() {
   
   const [data, setData] = useRecoilState<RegionDataType[]>(countData)
-
-  // 화면 로딩시 값 가져다 두기
-  useEffect(() => {
-    console.log('1')
-    try {
-      const getData = async () => await countDataIn();
-      getData().then((res) => {
-        console.log('2')
-        setData(res)
-      })
-    } catch (e) {
-      console.log('3')
-      console.log(e)
-    }
-  }, []);
 
   // 오늘 날짜를 정수열로 1~31까지 가져옴
   // const todayNum = new Date().getDate()

@@ -16,10 +16,6 @@ export default function ModalTest() {
     map: 0,
     week: 0
   })
-  const [isOpen, setIsOpen] = useState<any>({
-    map: false,
-    week: false
-  })
 
   // 선택된 창 가장 앞으로 보내기
   const moveFront = (name: string) => {

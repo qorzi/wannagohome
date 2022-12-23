@@ -64,7 +64,6 @@ interface RegionDataType {
 function TableView() {
 
   const [data, setData] = useRecoilState<RegionDataType[]>(countData)
-  console.log(data)
 
   const rows = [
     createData('일요일', data['0']['전체카운트'], upToDown(data['0']['전체카운트'], data['6']['전체카운트'])),
