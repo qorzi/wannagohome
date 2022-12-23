@@ -37,16 +37,6 @@ interface RegionDataType {
   [key: string]: RegionType | string | number
 }
 
-export const weekModal = atom({
-  key: "weekModal",
-  default: false
-})
-
-export const mapModal = atom({
-  key: "mapModal",
-  default: false
-})
-
 export const countData = atom({
   key: "countData",
   default: [] as RegionDataType[]

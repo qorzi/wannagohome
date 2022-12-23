@@ -50,7 +50,7 @@ export default async function CountDataIn() {
 
   const BASE_URL = null
 
-  type ops = {
+  interface ops {
     method: string,
     url: any
   }

@@ -26,21 +26,18 @@ interface modal {
 
 export default function WeekModal(props: modal) {
 
-  console.log('loading')
   const [data, setData] = useRecoilState<RegionDataType[]>(countData)
   const [loading, setLoading] = useState(true)
+  
   // 화면 로딩시 값 가져다 두기
   useEffect(() => {
-    console.log('1')
     try {
       const getData = async () => await countDataIn();
       getData().then((res) => {
-        console.log('2')
         setData(res)
         setLoading(false)
       })
     } catch (e) {
-      console.log('3')
       console.log(e)
       setLoading(false)
     }

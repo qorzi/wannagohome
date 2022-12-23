@@ -16,10 +16,6 @@ export default function ModalTest() {
     map: 0,
     week: 0
   })
-  const [isOpen, setIsOpen] = useState<any>({
-    map: false,
-    week: false
-  })
 
   // 선택된 창 가장 앞으로 보내기
   const moveFront = (name: string) => {
@@ -85,25 +81,14 @@ export default function ModalTest() {
   }
 
   // 모달창 태그 설정
-  const mapModal = <MapModal key={1} title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></MapModal>
+  const mapModal = <MapModal title={'map'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></MapModal>
   const weekModal = <WeekModal title={'week'} setting={modalPosition} z={modalZIndex} dragStart={dragStart} dragEnd={dragEnd}></WeekModal>
-
-  const openModal = (name: string) => {
-    const newIsOpen = isOpen
-    for (let key in newIsOpen) {
-      if (key === name) {
-        newIsOpen[key] = !newIsOpen[key]
-      }
-    }
-    setIsOpen(newIsOpen)
-    console.log(isOpen)
-  }
 
   return (
     <DraggableBackground onMouseMove={ (event: any) => {mouseMove(event)} }>
-      {isOpen.map && mapModal}
+      {mapModal}
       {weekModal}
-      <button onClick={() => {openModal('map')}}>Map</button>
+      <button onClick={() => {}}>Map</button>
     </DraggableBackground>
   )
 }
