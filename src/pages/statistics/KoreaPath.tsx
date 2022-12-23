@@ -6,7 +6,7 @@ function KoreaMap({todayData}:any) {
   const computedRatio = (region:string) => {
     const total = Number(todayData['전체카운트'])
     const avg = Number(total/17)
-    const ratio = 50 + (Number(todayData['지역별'][region]['오늘']) - avg)/total*100
+    const ratio = 50 + (Number(todayData['지역별'][region]['오늘']) - avg)/avg*100
     return Number(ratio)
   }
   const mapData = {
