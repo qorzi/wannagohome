@@ -41,3 +41,13 @@ export const countData = atom({
   key: "countData",
   default: [] as RegionDataType[]
 })
+
+interface locationType {
+  latitude: number
+  longitude: number
+}
+
+export const locationData = atom<locationType | null>({
+  key: "locationData",
+  default: null
+})

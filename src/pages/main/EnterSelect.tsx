@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import EnterTitle from './EnterSelectTitle'
 import EnterButton from './EnterSelectButton'
 
+
 function EnterSelect() {
   const [showLine, setShowLines] = useState(1)
 
@@ -14,12 +15,13 @@ function EnterSelect() {
       time={50} 
       lineNum={ 1 } 
       setShowLines={ setShowLines }></EnterTitle>,
-    <EnterButton 
+    <EnterButton
       value="Yes" 
       time={50} 
       lineNum={ 2 } 
       setShowLines={ setShowLines }
-      routeLink="/count"></EnterButton>,
+      routeLink="/count"
+      ></EnterButton>,
     <EnterButton 
       value="Nope" 
       time={50} 

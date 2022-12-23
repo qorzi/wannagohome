@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
+import countDataOut from '../../ajax/countDataOut'
+import { useRecoilState } from 'recoil';
+import { locationData } from '../../atom';
 
 interface buttonProps {
   value: string
@@ -16,11 +19,13 @@ function EnterButton(props: buttonProps) {
   const [buttonValue, setButtonValue] = useState('')
   const [count, setCount] = useState(0)
 
+  const [location, setLocation] = useRecoilState(locationData)
+
   useEffect(() => {
     const buttonTyping = setInterval(() => {
       setButtonValue(buttonValue + enterTitleString[count])
       setCount(count + 1)
-      console.log(count)
+      // console.log(count)
     }, props.time)
     if (count === enterTitleString.length) {
       clearInterval(buttonTyping)
@@ -32,9 +37,16 @@ function EnterButton(props: buttonProps) {
 
   const navigate = useNavigate()
 
+  const push = () => {
+    if (location) {
+      countDataOut(location)
+      navigate(`${props.routeLink}`)
+    } 
+  }
+
   return (
     <Button onClick={() => { 
-      navigate(`${props.routeLink}`)
+      push()
     }}>{ buttonValue }</Button>
   )
 }
