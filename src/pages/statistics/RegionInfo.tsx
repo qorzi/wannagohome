@@ -249,11 +249,17 @@ const Info = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'DungGeunMo';
   background: ${props => props.theme.color.defaultBgColor};
   width: 50px;
   padding: 4px;
   position: absolute;
+  font-size: 16px;
+  line-height: 16px;
+  
+  p {
+    // height: 16px;
+  }
+
   p:first-child {
     font-size: 12px;
   }
@@ -262,7 +268,6 @@ const Info = styled.div`
   &:nth-child(1) {
     left: 33%;
     top: 27%
-
   }
   // 대구
   &:nth-child(2) {

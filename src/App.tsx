@@ -8,9 +8,8 @@ import { Routes, Route } from 'react-router-dom'
 import MatterStepOne from './pages/count/wordsFalling';
 import BlueScreen from './pages/blueScreen/BlueScreen';
 import Timer from './pages/count/timer';
-import Map from './pages/statistics/map';
+import Map from './pages/statistics/KoreaMap';
 import Shutdown from './pages/shutdown/Shutdown';
-import Modal from './pages/statistics/modal';
 import ModalTest from './pages/statistics/ModalTest';
 
 
@@ -31,7 +30,6 @@ function App() {
             <Route path='/statistics' element={<Map/>}/>
             <Route path='/Shutdown' element={<Shutdown/>}/>
             <Route path='/ModalTest' element={<ModalTest/>}/>
-            <Route path='/modal' element={<Modal/>}/>
             <Route path='*' element={<div>404</div>}/>
           </Routes>
         </Main>
